@@ -4,13 +4,13 @@
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    Student student=(Student) session.getAttribute("student");
+    Student student = (Student) session.getAttribute("student");
     if(student.getSid()==0){
         response.sendRedirect("studentLogin.jsp");
     }
     BaseDaoImpl dao = new BaseDaoImpl();
     int category=Integer.parseInt(request.getParameter("category"));
-    List<Question> questionList=dao.getQuestions(category);
+    List<Question> questionList=dao.getQuestionList(category);
 %>
 <html>
 <head>
@@ -47,9 +47,19 @@
         table td{
             height: 25px;
         }
+        #topTable a{
+            text-decoration: none;
+        }
+        form{
+            margin: 8px auto;
+        }
         /*********** 分页区域 **********/
         #changePages{
-            margin-bottom: 30px;
+            margin: 25px auto;
+            font-family: 宋体;
+        }
+        #changePages a{
+            text-decoration: none;
         }
     </style>
 </head>
@@ -107,10 +117,9 @@
                 <% }else if(question.getCategory()==2){%><%="算法练习" %>
                 <% }else{%><%="算法提高" %><%} %>
             </td>
-            <%--<td width="138"><%if (dao.getExResult(u.getUid(),question.getQid(),1)>=1){ %> <%="已完成" %>--%>
-            <%--<% }else{%><%="未完成" %><%} %>--%>
-            <%--</td>--%>
-            <td width="138">未完成</td>
+            <td width="138"><%if (dao.getExResult(student.getSid(),question.getQid(),1)>=1){ %> <%="已完成" %>
+                <% }else{%><%="未完成" %><%} %>
+            </td>
             <td width="138">
                 <form action="question.jsp" method="post">
                     <input type="hidden" name="qid" value=<%=qid %> />
@@ -159,18 +168,18 @@
         var tempStr = "共"+pageNum+"条记录 分"+totalPage+"页 当前第"+currentPage+"页  ";
         if(currentPage>1){
             tempStr += "<a href=\"#\" onClick=\"goPage("+(1)+","+psize+")\">首页</a>";
-            tempStr += "<a href=\"#\" onClick=\"goPage("+(currentPage-1)+","+psize+")\"><上一页</a>"
+            tempStr += "<a href=\"#\" onClick=\"goPage("+(currentPage-1)+","+psize+")\">&nbsp;<上一页</a>"
         }else{
             tempStr += "首页";
-            tempStr += "<上一页";
+            tempStr += " <上一页";
         }
 
         if(currentPage<totalPage){
-            tempStr += "<a href=\"#\" onClick=\"goPage("+(currentPage+1)+","+psize+")\">下一页></a>";
-            tempStr += "<a href=\"#\" onClick=\"goPage("+(totalPage)+","+psize+")\">尾页</a>";
+            tempStr += "<a href=\"#\" onClick=\"goPage("+(currentPage+1)+","+psize+")\">&nbsp;下一页></a>";
+            tempStr += "<a href=\"#\" onClick=\"goPage("+(totalPage)+","+psize+")\">&nbsp;尾页</a>";
         }else{
-            tempStr += "下一页>";
-            tempStr += "尾页";
+            tempStr += " 下一页>";
+            tempStr += " 尾页";
         }
         document.getElementById("changePages").innerHTML = tempStr;
     }

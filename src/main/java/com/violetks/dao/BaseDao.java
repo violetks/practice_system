@@ -1,5 +1,8 @@
 package com.violetks.dao;
 
+import com.violetks.entity.Question;
+import com.violetks.entity.RankList;
+import com.violetks.entity.Record;
 import com.violetks.entity.Student;
 
 import java.util.Date;
@@ -8,6 +11,7 @@ import java.util.List;
 public interface BaseDao {
     // 获取学生信息
     Student getStudent(int sid,String password);
+
     // 获取每类试题 总数
     int getCount(int category);
     // 获取每类试题 已解决数量
@@ -16,6 +20,26 @@ public interface BaseDao {
     Date getLastTime(int category);
     // 获取试题总数
     int getLastQid();
+
     // 获取每类试题 试题列表
-    List getQuestions(int category);
+    List getQuestionList(int category);
+    // 获取每道题完成状态
+    int getExResult(int sid, int qid, int result);
+
+    // 获取单个试题 详细内容
+    Question getQuestion(int qid);
+
+    // 添加问题
+    boolean addQuestion(Question question);
+    // 添加选择题
+    boolean addChoiceQuestion(Question question);
+    // 更新某道题
+    boolean updateQuestion(int qid, Question question);
+
+    // 添加练习记录
+    boolean addExciseRecord(Record record);
+    // 查询练习记录
+    List<Record> getExResult(int sid, int result);
+    // 排行榜
+    List<RankList> getExResult(int top);
 }
