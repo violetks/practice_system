@@ -7,30 +7,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da4d6b13-2121-4764-8655-053d578eb305" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/violetks/complierun/ClassFileManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/violetks/complierun/JavaClassFileObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/violetks/complierun/JavaCompileRun.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/violetks/complierun/JavaSourceFromString.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/violetks/entity/RankList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/violetks/fileUtil/FileInput.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/violetks/fileUtil/FileOutput.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/compileRun.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/question.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/questionAdd.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/violetks/dao/BaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/violetks/dao/BaseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/violetks/dao/BaseDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/violetks/dao/BaseDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/categorySet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/categorySet.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/exerciseSet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/exerciseSet.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/questionInput.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/questionInput.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/questionSet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/questionSet.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/rankList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/rankList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/violetks/dao/BaseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/violetks/dao/BaseDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/violetks/dao/BaseDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/violetks/dao/BaseDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/violetks/complierun/ClassFileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/violetks/complierun/ClassFileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/violetks/complierun/JavaClassFileObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/violetks/complierun/ByteJavaFileObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/violetks/complierun/JavaCompileRun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/violetks/complierun/JavaCompileRun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/violetks/complierun/JavaSourceFromString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/violetks/complierun/JavaSourceFromString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/compileRun.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/compileRun.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/question.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/question.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/practice_system.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/practice_system.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/practice_system/WEB-INF/classes/com/violetks/dao/BaseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/practice_system/WEB-INF/classes/com/violetks/dao/BaseDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/practice_system/WEB-INF/classes/com/violetks/dao/BaseDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/practice_system/WEB-INF/classes/com/violetks/dao/BaseDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/practice_system/questionSet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/practice_system/questionSet.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/practice_system/categorySet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/practice_system/categorySet.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/practice_system/exerciseSet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/practice_system/exerciseSet.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/practice_system/questionInput.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/practice_system/questionInput.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/practice_system/rankList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/practice_system/rankList.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -55,98 +43,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/violetks/dao/BaseDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="43" column="17" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/violetks/dao/BaseDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="391" selection-start-line="391" selection-end-line="391" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#BaseDaoImpl#0;class#BaseDaoImpl#0" />
-                <element signature="method#getCount#0;class#BaseDaoImpl#0" />
-                <element signature="method#getResolvedCount#0;class#BaseDaoImpl#0" />
-                <element signature="method#getLastTime#0;class#BaseDaoImpl#0" />
-                <element signature="method#getLastQid#0;class#BaseDaoImpl#0" />
-                <element signature="method#getExResult#0;class#BaseDaoImpl#0" />
-                <element signature="method#addQuestion#0;class#BaseDaoImpl#0" />
-                <element signature="method#addChoiceQuestion#0;class#BaseDaoImpl#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/questionSet.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="72" column="12" selection-start-line="72" selection-start-column="12" selection-end-line="72" selection-end-column="67" />
-              <folding>
-                <element signature="e#36#42#1" expanded="true" />
-                <element signature="e#36#42#0" expanded="true" />
-                <element signature="e#36#42#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/exerciseSet.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-741">
-              <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
-              <folding>
-                <element signature="n#style#0;n#li#2;n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#36#42#1" expanded="true" />
-                <element signature="e#36#42#0" expanded="true" />
-                <element signature="e#36#42#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/rankList.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1059">
-              <caret line="159" column="9" selection-start-line="159" selection-start-column="9" selection-end-line="159" selection-end-column="9" />
-              <folding>
-                <element signature="n#style#0;n#li#4;n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#36#42#1" expanded="true" />
-                <element signature="e#36#42#0" expanded="true" />
-                <element signature="e#36#42#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/questionAdd.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/questionInput.jsp">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -189,21 +86,22 @@
         <option value="$PROJECT_DIR$/src/main/java/com/violetks/fileUtil/fileInput.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/violetks/fileUtil/FileInput.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/violetks/fileUtil/FileOutput.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/violetks/complierun/JavaCompileRun.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/violetks/complierun/ClassFileManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/violetks/complierun/JavaClassFileObject.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/violetks/complierun/JavaSourceFromString.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/questionAdd.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/violetks/entity/RankList.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/violetks/dao/BaseDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/violetks/dao/BaseDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/categorySet.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/question.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/compileRun.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/questionSet.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/exerciseSet.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/rankList.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/questionInput.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/violetks/complierun/JavaClassFileObject.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/violetks/complierun/ClassFileManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/violetks/complierun/JavaSourceFromString.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/question.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/compileRun.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/violetks/complierun/ByteJavaFileObject.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/violetks/complierun/JavaCompileRun.java" />
       </list>
     </option>
   </component>
@@ -243,9 +141,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="487" />
-    <option name="y" value="47" />
-    <option name="width" value="902" />
+    <option name="x" value="332" />
+    <option name="y" value="118" />
+    <option name="width" value="1035" />
     <option name="height" value="656" />
   </component>
   <component name="ProjectView">
@@ -253,8 +151,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -262,28 +158,19 @@
               <item name="practice_system" type="b2602c69:ProjectViewProjectNode" />
               <item name="practice_system" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="practice_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="practice_system" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="practice_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="practice_system" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1581604481203" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1583607140213" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -419,18 +306,27 @@
       <workItem from="1581495013937" duration="55000" />
       <workItem from="1581577673431" duration="16090000" />
       <workItem from="1581656764383" duration="3642000" />
-      <workItem from="1582113874969" duration="7549000" />
+      <workItem from="1582113874969" duration="8060000" />
+      <workItem from="1583586240137" duration="20725000" />
+      <workItem from="1583669419562" duration="3673000" />
     </task>
+    <task id="LOCAL-00001" summary="实现编译运行">
+      <created>1582121553312</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1582121553312</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128179000" />
+    <option name="totallyTimeSpent" value="153088000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6978528" visible="true" weight="0.18229954" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6978528" visible="true" weight="0.17397882" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -440,8 +336,8 @@
       <window_info id="Web" order="7" sideWeight="0.30214724" side_tool="true" weight="0.22087745" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.19325154" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32872504" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.30414745" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.41167435" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.15668203" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -449,10 +345,11 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.10599078" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.30721965" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
       <window_info anchor="bottom" id="Version Control" order="14" />
+      <window_info anchor="bottom" id="Duplicate detector" order="15" weight="0.32872504" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -500,6 +397,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="实现编译运行" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现编译运行" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -572,37 +473,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/violetks/complierun/JavaSourceFromString.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/violetks/complierun/JavaClassFileObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/violetks/entity/RankList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/violetks/entity/Category.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -630,30 +504,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/violetks/complierun/ClassFileManager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/questionSet.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1296">
+          <caret line="72" column="12" selection-start-line="72" selection-start-column="12" selection-end-line="72" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/exerciseSet.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="846">
+          <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/violetks/entity/Category.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
-          <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/violetks/fileUtil/FileInput.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="113" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/output/111/205.txt">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/violetks/fileUtil/FileOutput.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/output/111/801.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/output/111/101.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/output/111/203.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/output/111/204.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/answer/1/example101.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/questionAdd.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="9" column="4" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="114" />
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/rankList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1483">
+          <caret line="159" column="9" selection-start-line="159" selection-start-column="9" selection-end-line="159" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/questionInput.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/answer/1/answer101.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/compileRun.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+          <folding>
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/violetks/complierun/ClassFileManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#905#1207#0" expanded="true" />
+            <element signature="e#1206#1207#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/violetks/complierun/JavaSourceFromString.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -662,111 +597,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/violetks/complierun/JavaCompileRun.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1583">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        <state relative-caret-position="135">
+          <caret line="194" column="42" selection-start-line="194" selection-start-column="42" selection-end-line="194" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/compileRun.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/violetks/complierun/ByteJavaFileObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2232">
-          <caret line="41" column="33" lean-forward="true" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
-          <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="e#4151#4157#1#HTML" expanded="true" />
-            <element signature="n#tr#2;n#table#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#tr#9;n#table#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#tr#10;n#table#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#tr#11;n#table#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/question.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="107" column="21" lean-forward="true" selection-start-line="107" selection-start-column="21" selection-end-line="107" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
-            <element signature="e#3367#3371#0#HTML" expanded="true" />
-            <element signature="e#3371#3375#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/violetks/dao/BaseDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="43" column="17" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="17" />
+        <state>
+          <caret lean-forward="true" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/questionInput.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/questionAdd.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/categorySet.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="87" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/rankList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1059">
-          <caret line="159" column="9" selection-start-line="159" selection-start-column="9" selection-end-line="159" selection-end-column="9" />
-          <folding>
-            <element signature="n#style#0;n#li#4;n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#36#42#1" expanded="true" />
-            <element signature="e#36#42#0" expanded="true" />
-            <element signature="e#36#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/questionSet.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="72" column="12" selection-start-line="72" selection-start-column="12" selection-end-line="72" selection-end-column="67" />
-          <folding>
-            <element signature="e#36#42#1" expanded="true" />
-            <element signature="e#36#42#0" expanded="true" />
-            <element signature="e#36#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/exerciseSet.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-741">
-          <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
-          <folding>
-            <element signature="n#style#0;n#li#2;n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#36#42#1" expanded="true" />
-            <element signature="e#36#42#0" expanded="true" />
-            <element signature="e#36#42#0" expanded="true" />
+            <element signature="e#683#684#0" expanded="true" />
+            <element signature="e#737#738#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/violetks/dao/BaseDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="391" selection-start-line="391" selection-end-line="391" />
+        <state relative-caret-position="297">
+          <caret line="413" lean-forward="true" selection-start-line="413" selection-end-line="413" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#BaseDaoImpl#0;class#BaseDaoImpl#0" />
@@ -777,6 +631,62 @@
             <element signature="method#getExResult#0;class#BaseDaoImpl#0" />
             <element signature="method#addQuestion#0;class#BaseDaoImpl#0" />
             <element signature="method#addChoiceQuestion#0;class#BaseDaoImpl#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/violetks/dao/BaseDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="44" column="1" lean-forward="true" selection-start-line="44" selection-start-column="1" selection-end-line="44" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/violetks/fileUtil/FileInput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/violetks/fileUtil/FileOutput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/output/111/201.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/output/111/202.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/output/2016206929/101.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/categorySet.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="87" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/question.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+          <folding>
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>

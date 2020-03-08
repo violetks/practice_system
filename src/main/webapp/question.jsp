@@ -65,25 +65,6 @@
     </style>
 </head>
 <body>
-<script type="text/javascript">
-    function getCode(){
-        var str = document.getElementById("codeArea").value;  // 获取文本框输入值
-        console.log(str)
-        var arr = str.split(" ");
-        for(var i=0;i<arr.length;i++){
-            if(arr[i]=="class"){
-                document.getElementById("submitCode").value="请稍后...";   // 提交代码按钮显示文字
-                document.getElementById("submitCode").disabled=true;
-                return true;
-            } else{
-                alert("请输入源代码!");
-                form.codeStr.focus();
-                return false;
-            }
-        }
-    }
-</script>
-
 <%!
     FileOutput fo = new FileOutput();
 %>
@@ -164,6 +145,36 @@
         </td>
     </tr>
 </table>
+
+<script type="text/javascript">
+    function getCode(){
+        var str = document.getElementById("codeArea").value;  // 获取文本框输入值
+        var arr = str.split(" ");
+        arr.forEach(function (value, index, array) {
+            if (array.indexOf("class")===-1){
+                alert("请输入源代码！");
+                return false
+            }else {
+                return true
+            }
+        })
+        // 下面这个for循环，第一次元素是 "public"，就直接跳出循环返回 false 了
+        // for(var i=0;i<arr.length;i++){
+        //     console.log(arr[i]);
+        //     if ()
+        //     if(arr[i]==="class"){
+        //         // document.getElementById("submitCode").value="请稍后...";   // 提交代码按钮显示文字
+        //         // console.log(document.getElementById("submitCode").value);
+        //         // document.getElementById("submitCode").disabled=true;
+        //         return true;
+        //     } else{
+        //         console.log("请输入源代码!");
+        //         // form.codeStr.focus();
+        //         // return false;
+        //     }
+        // }
+    }
+</script>
 <%}%>
 </body>
 </html>

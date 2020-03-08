@@ -6,68 +6,53 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.PrintStream;
-import java.io.Writer;
 import java.lang.reflect.Method;
-import java.nio.charset.Charset;
 import java.util.Arrays;
-import java.util.Locale;
-import javax.tools.DiagnosticListener;
-import javax.tools.JavaCompiler;
-import javax.tools.JavaFileManager;
-import javax.tools.SimpleJavaFileObject;
-import javax.tools.ToolProvider;
-import javax.tools.JavaCompiler.CompilationTask;
-import javax.tools.JavaFileManager.Location;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.tools.*;
 
 public class JavaCompileRun {
-    private int score = 0;
-    private long runtime = 0L;
-    private boolean srccompile = false;
-    private boolean srcrun = false;
-    private String exceptionString = "";
+    private int score = 0;                 // 试题得分
+    private long runtime = 0L;             // 运行耗时(单位ms)
+    private boolean compileResult = false; // 编译结果
+    private boolean runResult = false;     // 运行结果
+    private String exceptionString = "";   // 异常信息
+    private String fullClassName;          // 类的全名称
+    //存放编译过程中输出的信息
+    private DiagnosticCollector<JavaFileObject> diagnosticsCollector = new DiagnosticCollector<>();
+    // 试题答案文件夹
+    final String inputPath = "C://Users//Xionglin//IdeaProjects//practice_system//src//main//resources//answer/";
+    // 学生运行结果文件夹
+    final String outputPath = "C://Users//Xionglin//IdeaProjects//practice_system//src//main//resources//output/";
 
-    public JavaCompileRun() { }
-
-    public String getExceptionString() {
-        return this.exceptionString;
+    public JavaCompileRun(String sourceCode) {
+        this.fullClassName = getClassName(sourceCode);
     }
 
-    public int getScore() {
-        return this.score;
-    }
+    public int getScore() { return score; }
 
-    public void setRuntime(long runtime) {
-        this.runtime = runtime;
-    }
+    public void setScore(int score) { this.score = score; }
 
-    public void setSrccompile(boolean srccompile) {
-        this.srccompile = srccompile;
-    }
+    public long getRuntime() { return runtime; }
 
-    public void setSrcrun(boolean srcrun) {
-        this.srcrun = srcrun;
-    }
+    public void setRuntime(long runtime) { this.runtime = runtime; }
 
-    public void setExceptionString(String exceptionString) {
-        this.exceptionString = exceptionString;
-    }
+    public boolean isCompileResult() { return compileResult; }
 
-    public long getRuntime() {
-        return this.runtime;
-    }
+    public void setCompileResult(boolean compileResult) { this.compileResult = compileResult; }
 
-    public boolean isSrccompile() {
-        return this.srccompile;
-    }
+    public boolean isRunResult() { return runResult; }
 
-    public boolean isSrcrun() {
-        return this.srcrun;
-    }
+    public void setRunResult(boolean runResult) { this.runResult = runResult; }
 
-    public void setScore(int score) {
-        this.score = score;
-    }
+    public String getExceptionString() { return exceptionString; }
 
+    public void setExceptionString(String exceptionString) { this.exceptionString = exceptionString; }
+
+    /**
+     * 将输入的代码文件和已有答案文件比较
+     */
     public boolean fileCompare(String file1, String file2) {
         BufferedReader br1 = null;
         BufferedReader br2 = null;
@@ -83,10 +68,8 @@ public class JavaCompileRun {
                     return false;
                 }
 
-                temp1 = temp1.trim();
-                temp2 = temp2.trim();
-                String[] t1 = temp1.split("\\s+");
-                String[] t2 = temp2.split("\\s+");
+                String[] t1 = temp1.trim().split("\\s+");
+                String[] t2 = temp2.trim().split("\\s+");
 
                 for(int i = 0; i < t1.length; ++i) {
                     if (!t1[i].equals(t2[i])) {
@@ -98,88 +81,119 @@ public class JavaCompileRun {
             br1.close();
             br2.close();
             return true;
-        } catch (Exception var10) {
-            this.exceptionString = var10.getMessage() + "comparing error";
+        } catch (Exception e) {
+            this.exceptionString = e.getMessage() + "comparing error";
             return false;
         }
     }
 
-    public void srcCompile(String scr, int qid, int sid) {
-        PrintStream o = System.out;
+    /**
+     * 获取类名
+     *
+     * @param code 源码
+     * @return className 类名称
+     */
+    public static String getClassName(String code) {
+        String className = "";
+        Pattern pattern = Pattern.compile("package\\s+\\S+\\s*;");
+        Matcher matcher = pattern.matcher(code);
+        if (matcher.find()) {
+            className = matcher.group().replaceFirst("package", "").replace(";", "").trim() + ".";
+        }
+
+        pattern = Pattern.compile("class\\s+\\S+\\s+\\{");
+        matcher = pattern.matcher(code);
+        if (matcher.find()) {
+            className += matcher.group().replaceFirst("class", "").replace("{", "").trim();
+        }
+        return className;
+    }
+
+    /**
+     * 代码编译器
+     */
+    public void codeCompile(String code, int qid, int sid) {
+        PrintStream out = System.out;
         PrintStream error = System.err;
 
         try {
-            File fe = new File("d://javalxlog.txt");
-            if (!fe.exists()) {
-                fe.createNewFile();
+            File file = new File("d://javalxlog.txt");
+            if (!file.exists()) {
+                file.createNewFile();
             }
 
-            PrintStream err = new PrintStream(fe);
+            PrintStream err = new PrintStream(file);
             System.setErr(err);
-            long start = System.currentTimeMillis();
-            SimpleJavaFileObject fileObject = new JavaSourceFromString("Main", scr);
+            long startTime = System.currentTimeMillis();
+
+            // 获取java的编译器
+            JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
+            // 标准的内容管理器,更换成自己的实现，覆盖部分方法
+            StandardJavaFileManager standardFileManager = compiler.getStandardFileManager(diagnosticsCollector, null, null);
+            JavaFileManager fileManager = new ClassFileManager(standardFileManager);
+            // 构造源代码对象
+            SimpleJavaFileObject fileObject = new JavaSourceFromString(fullClassName, code);
             if (fileObject == null) {
                 System.out.println("fileObject null");
             }
-
-            JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
-            JavaFileManager fileManager = new ClassFileManager(compiler.getStandardFileManager((DiagnosticListener)null, (Locale)null, (Charset)null));
-            JavaCompiler.CompilationTask task = compiler.getTask((Writer)null, fileManager, (DiagnosticListener)null, (Iterable)null, (Iterable)null, Arrays.asList(fileObject));
+            // 获取一个编译任务
+            JavaCompiler.CompilationTask task =
+                    compiler.getTask(null, fileManager, diagnosticsCollector, null, null, Arrays.asList(fileObject));
+            // task.call() 表示编译成功或失败 true:成功 false:失败
             Boolean c = task.call();
             if (c) {
-                this.srccompile = true;
+                this.compileResult = true;
 
                 try {
-                    ClassLoader classLoader = fileManager.getClassLoader((Location)null);
-                    Class<?> MainClass = classLoader.loadClass("Main");
-                    if (MainClass != null) {
-                        File f1 = new File("d://answer/" + qid);
-                        File f2 = new File("d://output/" + sid);
+                    ClassLoader classLoader = fileManager.getClassLoader(null);
+                    Class<?> mainClass = classLoader.loadClass(fullClassName);
+                    if (mainClass != null) {
+                        File f1 = new File(inputPath + qid);  // 试题答案文件夹
+                        File f2 = new File(outputPath + sid);  // 学生运行结果文件夹
                         if (!f2.exists()) {
                             f2.mkdir();
                         }
 
                         File[] fs = f1.listFiles();
-                        if (fs.length > 5) {
-                            for(int i = 1; i <= 5; ++i) {
-                                File f = new File("d://answer/" + qid + "/input" + qid + "0" + i + ".txt");
+                        if (fs != null && fs.length > 5) {
+                            for(int i = 1; i <= 5; i++) {
+                                File f = new File(inputPath + qid + "/input" + qid + "0" + i + ".txt");
                                 FileInputStream in = new FileInputStream(f);
                                 System.setIn(in);
-                                FileOutputStream out = new FileOutputStream("d://output/" + sid + "/" + qid + "0" + i + ".txt");
-                                System.setOut(new PrintStream(out));
-                                Method method = MainClass.getMethod("main", String[].class);
-                                method.invoke((Object)null, new String[0]);
-                                out.close();
+                                FileOutputStream output = new FileOutputStream(outputPath + sid + "/" + qid + "0" + i + ".txt");
+                                // 通过 PrintStream 输出到文件
+                                System.setOut(new PrintStream(output));
+                                Method method = mainClass.getMethod("main", String[].class);
+                                method.invoke(null, (Object) new String[0]);   // 调用main方法
+                                output.close();
                             }
                         } else {
-                            FileOutputStream out = new FileOutputStream("d://output/" + sid + "/" + qid + "01.txt");
-                            System.setOut(new PrintStream(out));
-                            Method method = MainClass.getMethod("main", String[].class);
-                            method.invoke((Object)null, new String[0]);
-                            out.close();
+                            FileOutputStream output = new FileOutputStream(outputPath + sid + "/" + qid + "01.txt");
+                            System.setOut(new PrintStream(output));
+                            Method method = mainClass.getMethod("main", String[].class);
+                            method.invoke(null, (Object) new String[0]);
+                            output.close();
                         }
                     } else {
-                        this.srccompile = false;
+                        this.compileResult = false;
                     }
 
-                    System.setOut(o);
-                    this.srcrun = true;
-                } catch (Exception var29) {
-                    this.srcrun = false;
-                    this.exceptionString = var29.getMessage() + "  run error";
+                    System.setOut(out);
+                    this.runResult = true;
+                } catch (Exception e) {
+                    this.runResult = false;
+                    this.exceptionString = e.getMessage() + "  run error";
                 } finally {
-                    System.setOut(o);
+                    System.setOut(out);   // 还原默认打印的对象
                     System.setErr(error);
                 }
             }
 
-            long end = System.currentTimeMillis();
-            this.runtime = end - start;
-        } catch (Exception var31) {
+            long endTime = System.currentTimeMillis();
+            this.runtime = endTime - startTime;
+        } catch (Exception e) {
             this.exceptionString = "编译异常";
-            if (this.srccompile) {
-                this.srcrun = false;
-            }
+            this.compileResult = false;
         }
 
     }

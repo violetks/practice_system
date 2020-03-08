@@ -36,18 +36,6 @@
     </style>
 </head>
 <body>
-<%--字符串处理为数组，判断是否有class--%>
-<%!
-    public boolean isSpace(String src){
-        String[] arr=src.split(" ");
-        for(int i=0;i<arr.length;i++){
-            if(arr[i]=="class"){
-                return true;
-            }
-        }
-        return false;
-    }
-%>
 <%
     final String inputPath = "C://Users//Xionglin//IdeaProjects//practice_system//src//main//resources//answer/";
     final String outputPath = "C://Users//Xionglin//IdeaProjects//practice_system//src//main//resources//output/";
@@ -55,33 +43,31 @@
     Student student=(Student) session.getAttribute("student");
     Question question=(Question) session.getAttribute("question");
     int qid = question.getQid();
-    String qid1 = new Integer(qid).toString();
-    session.setAttribute("qid",qid1);
+    session.setAttribute("qid",qid);
     String codeStr = request.getParameter("codeStr");
-    if(isSpace(codeStr)){
+    if(codeStr==null){
         response.sendRedirect("question.jsp");
     }else{
-        JavaCompileRun jCR = new JavaCompileRun();
+        JavaCompileRun jCR = new JavaCompileRun(codeStr);
         try{
-            jCR.srcCompile(codeStr,qid,student.getSid());
+            jCR.codeCompile(codeStr,qid,student.getSid());
         }catch(Exception e){
             jCR.setExceptionString("编译时异常");
         }
-        if (!jCR.isSrccompile()||!jCR.isSrcrun()) {
-            //session.setAttribute("jcr",jCR);
-            // response.sendRedirect("run_result.jsp");
+        if (!jCR.isCompileResult()||!jCR.isRunResult()) {
+            session.setAttribute("jcr",jCR);
         }else{
             // 和答案文件进行比较，如果5个答案，比对成功一次得20分;如果只一个答案可对比，成功满分100
             // 检测答案文件夹中的文件个数，确定比较次数
             File f1 = new File(inputPath + qid);
             File[] fs = f1.listFiles();
             int score = 0;
-            if(fs.length>5){//答案和输入文件个数
+            if(fs != null && fs.length > 5){//答案和输入文件个数
                 for (int j=1; j<6; j++) {
                     String file1 = outputPath + student.getSid()+"/"+qid+"0"+j+".txt";
                     String file2 = inputPath + qid +"/answer"+qid+"0"+j+".txt";
                     if (jCR.fileCompare(file1,file2)) {
-                        score = score+20;
+                        score += 20;
                         jCR.setScore(score);
                     }
                 }
@@ -89,12 +75,11 @@
                 String file1 = outputPath + student.getSid()+"/"+qid+"01.txt";
                 String file2 = inputPath + qid +"/answer"+qid+"01.txt";
                 if (jCR.fileCompare(file1,file2)) {
-                    score=score+100;
+                    score += 100;
                     jCR.setScore(score);
                 }
             }
-            //session.setAttribute("jcr",jCR);
-            //response.sendRedirect("run_result.jsp");
+            session.setAttribute("jcr",jCR);
         }
 %>
 <%
@@ -102,18 +87,18 @@
     if(student==null){
         response.sendRedirect("studentLogin.jsp");
     }
-    //JavaCompileRun jcr=(JavaCompileRun)session.getAttribute("jcr");
     // 练习记录
     Record record = new Record();
     record.setS(student);
     record.setQ(question);
     int result = 0;
-    if(jCR.isSrccompile()==true&&jCR.isSrcrun()==true&&jCR.getScore()==100){
+    if(jCR.isCompileResult() && jCR.isRunResult() && jCR.getScore()==100){
         result = 1;
     }
     record.setResult(result);
     record.setCategory(question.getCategory());
     //避免运行成功结果重复写入,结果不正确也不写入数据库
+    assert student != null;
     if(dao.getExResult(student.getSid(),question.getQid(),1)<1&&jCR.getScore()==100){
         dao.addExciseRecord(record);
     }
@@ -153,11 +138,11 @@
     </tr>
     <tr>
         <td width="96"><div align="right"><b>编译结果</b></div></td>
-        <td width="100"><%=jCR.isSrccompile()==true?"成功":"失败" %></td>
+        <td width="100"><%=jCR.isCompileResult()?"成功":"失败" %></td>
     </tr>
     <tr>
         <td width="96"><div align="right"><b>运行结果</b></div></td>
-        <td width="100"><%=jCR.isSrcrun()==true?"成功":"失败" %></td>
+        <td width="100"><%=jCR.isRunResult()?"成功":"失败" %></td>
     </tr>
     <tr>
         <td width="96"><div align="right"><b>运行时间</b></div></td>

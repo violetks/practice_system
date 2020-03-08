@@ -37,6 +37,9 @@
             width: 100px;
             height: 25px;
         }
+        form{
+            margin: 8px auto;
+        }
     </style>
 </head>
 <body>
