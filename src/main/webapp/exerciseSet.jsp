@@ -15,52 +15,8 @@
 <head>
     <meta charset="UTF-8">
     <title><%=student.getName() %>的练习记录</title>
-    <style type="text/css">
-        body{margin: 0;padding: 0;background-color: #f7f9fa;}
-        /*********** 导航条 **********/
-        #nav{
-            width: 100%;
-            height: 80px;
-            background-color: #283443;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        #nav h1{
-            margin-left: 20px;
-        }
-        #nav a{
-            color: white;
-            text-decoration: none;
-        }
-        #nav ul li{
-            float: left;
-            margin-right: 20px;
-            list-style: none;
-        }
-        /*********** 表格区域 **********/
-        #topTable{
-            margin-top: 60px;
-        }
-        table td{
-            height: 25px;
-        }
-        #topTable a{
-            text-decoration: none;
-        }
-        form{
-            margin: 8px auto;
-        }
-        /*********** 分页区域 **********/
-        #changePages{
-            margin: 25px auto;
-            font-family: 宋体;
-        }
-        #changePages a{
-            text-decoration: none;
-        }
-    </style>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/exerciseSet.css">
 </head>
 <body onload="goPage(1,6)">
 <%-----------导航条-------------%>

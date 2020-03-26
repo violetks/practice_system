@@ -1,0 +1,31 @@
+/*********** 内容部分 **********/
+#content_box{
+    width: 800px;
+    margin: 30px auto;
+}
+#content_box a{
+    display: block;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+#content_box b{
+    line-height: 25px;
+}
+#content_box p{
+    text-indent: 2em;
+    margin-top: 0;
+}
+/*********** 表格区域 **********/
+table td{
+    height: 25px;
+}
+/*********** 文本输入框 **********/
+#codeArea{
+    position:relative;
+    width:500px;
+    height:300px;
+    overflow: auto;
+}
+#submitCode{
+    margin-top: 10px;
+}

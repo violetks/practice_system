@@ -1,0 +1,71 @@
+/*********** 选中试题分类 **********/
+li:nth-child(2) {
+    color: white;
+    background-color: #3c4c5f;
+    border-bottom: 3px solid #e45600;
+}
+
+/*********** 表格区域 **********/
+#table_area {
+    width: 80%;
+    margin: 30px auto;
+    border: 1px solid #eee;
+    background-color: white;
+}
+#first_a {
+    width: 130px;
+    color: white;
+    display: block;
+    text-align: center;
+    margin: 30px 20px;
+    padding: 5px;
+    border-radius: 15px;
+    background-color: #409eff;
+    text-decoration: none;
+}
+table tr:first-child {
+    background-color: #eee;
+}
+
+table td {
+    width: 100px;
+    height: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #eee;
+}
+
+form{
+    margin: 8px auto;
+}
+
+.enter_btn {
+    cursor: pointer;
+    outline: none;
+    color: #409eff;
+    border-radius: 15px;
+    background-color: #ecf5ff;
+    border: 1px solid #b3d8ff;
+}
+
+.enter_btn:hover{
+    color: white;
+    background-color: #409eff;
+}
+/*********** 分页区域 **********/
+#changePages{
+    margin: 25px auto;
+    text-align: center;
+    color: #606266;
+    font-size: 15px;
+    font-family: 宋体;
+}
+#changePages a{
+    text-align: center;
+    margin: 30px 5px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #f4f4f5;
+    text-decoration: none;
+    cursor: pointer;
+}

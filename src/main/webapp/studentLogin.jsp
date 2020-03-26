@@ -3,47 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>学生登录</title>
-    <style type="text/css">
-        body{margin: 0;padding: 0;background-color: #f7f9fa;}
-        #login_box{
-            width: 500px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            border-radius: 5px;
-            background-color: white;
-        }
-        #login_box h2{
-            text-align: center;
-        }
-        form{
-            margin-left: 100px;
-        }
-        input{
-            width: 200px;
-            height: 25px;
-            border: 1px solid #999999;
-        }
-        .login_btn{
-            width: 250px;
-            height: 30px;
-            font-size: 14px;
-            line-height: 30px;
-            background: #0075B6;
-            color: #fff;
-            border: 1px solid #fff;
-            border-radius: 15px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/studentLogin.css">
 </head>
 <body>
 <div id="login_box">
     <h2>学生登录</h2>
     <form method="post">
-        学号：<input type="text" name="sid" /><br><br>
-        密码：<input type="password" name="spwd"/><br><br>
-        <input type="submit" value="登 录" class="login_btn">
+        <div id="form_info">
+            <span>学号：</span><input type="text" name="sid" id="sid" /><br>
+            <p class="error_msg" id="sid_error">学号不能为空！</p>
+            <span>密码：</span><input type="password" name="spwd" id="spwd" /><br>
+            <p class="error_msg" id="spwd_error">密码不能为空！</p>
+            <a href="resetPwd.jsp">忘记密码？</a>
+            <input type="submit" value="登  录" id="login_btn">
+        </div>
     </form>
 </div>
 
@@ -52,9 +26,17 @@
     String sid = request.getParameter("sid");
     String spwd = request.getParameter("spwd");
     if(sid =="" || sid==null){
-        out.print("<script>alert('学号不能为空！');</script>");
+%>
+<script language="JavaScript">
+    document.getElementById("sid_error").style.visibility = "visible";
+</script>
+<%
     }else if (spwd == "" || spwd==null) {
-        out.print("<script>alert('密码不能为空！');</script>");
+%>
+<script language="JavaScript">
+    document.getElementById("spwd_error").style.visibility = "visible";
+</script>
+<%
     }else {
         session.setAttribute("sid",sid);
         session.setAttribute("spwd",spwd);

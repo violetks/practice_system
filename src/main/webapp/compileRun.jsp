@@ -9,31 +9,8 @@
 <head>
     <meta charset="UTF-8">
     <title>运行结果</title>
-    <style type="text/css">
-        body{margin: 0;padding: 0;background-color: #f7f9fa;}
-        /*********** 导航条 **********/
-        #nav{
-            width: 100%;
-            height: 80px;
-            background-color: #283443;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        #nav h1{
-            margin-left: 20px;
-        }
-        #nav a{
-            color: white;
-            text-decoration: none;
-        }
-        #nav ul li{
-            float: left;
-            margin-right: 20px;
-            list-style: none;
-        }
-    </style>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/compileRun.css">
 </head>
 <body>
 <%

@@ -1,0 +1,25 @@
+body{margin: 0;padding: 0;background-color: #f7f9fa;}
+/*********** 导航条 **********/
+#nav{
+    width: 100%;
+    height: 80px;
+    background-color: #283443;
+    color: #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#nav h1{
+    margin-left: 20px;
+}
+#nav a{
+    color: #ccc;
+    text-decoration: none;
+}
+#nav ul li{
+    float: left;
+    padding: 0 8px;
+    margin-right: 20px;
+    list-style: none;
+    line-height: 77px;
+}

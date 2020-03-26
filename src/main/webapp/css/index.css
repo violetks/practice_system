@@ -1,0 +1,70 @@
+/*********** 欢迎文字部分 **********/
+#content_box{
+    width: 800px;
+    margin: 30px auto;
+    font-family: 宋体;
+}
+#content_box h3{
+    text-align: center;
+}
+#welcome_box{
+    text-indent: 2em;
+}
+/*********** 选择登录身份 **********/
+#choose_box{
+    width: 700px;
+    margin: 240px auto;
+}
+#choose_box a{
+    color: #333;
+    font-size: 18px;
+    text-decoration: none;
+}
+.top p{
+    text-align: center;
+}
+.top p:first-child{
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 0;
+}
+.top p:last-child{
+    font-size: 12px;
+    color: #999;
+    font-family: Arial;
+}
+.choose_user{
+    overflow: hidden;
+}
+.box{
+    float: left;
+    width: 285px;
+    height: 285px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 0 32px;
+    background-color: white;
+}
+.pic{
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+.btn{
+    width: 96px;
+    height: 30px;
+    font-size: 14px;
+    margin: 20px auto 0;
+    line-height: 30px;
+    text-align: center;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 15px;
+}
+/*********** 鼠标移入移出样式改变 **********/
+.box:hover{
+    background-color: #0075B6;
+}
+.box:hover p:nth-child(2){
+    color: white;
+}

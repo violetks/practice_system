@@ -4,94 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Java练习系统-首页</title>
-    <style type="text/css">
-        body{margin: 0;padding: 0;background-color: #f7f9fa;}
-        /*********** 导航条 **********/
-        #nav{
-            width: 100%;
-            height: 80px;
-            background-color: #283443;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        #nav h1{
-            margin-left: 20px;
-        }
-        #nav a{
-            color: white;
-            text-decoration: none;
-        }
-        #nav ul li{
-            float: left;
-            margin-right: 20px;
-            list-style: none;
-        }
-        /*********** 欢迎文字部分 **********/
-        #content_box{
-            width: 800px;
-            margin: 30px auto;
-            font-family: 宋体;
-        }
-        #content_box h3{
-            text-align: center;
-        }
-        #welcome_box{
-            text-indent: 2em;
-        }
-        /*********** 选择登录身份 **********/
-        #choose_box{
-            width: 700px;
-            margin: 240px auto;
-        }
-        #choose_box a{
-            color: #333;
-            font-size: 18px;
-            text-decoration: none;
-        }
-        .top p{
-            text-align: center;
-        }
-        .top p:first-child{
-            font-size: 22px;
-            color: #333;
-            margin-bottom: 0;
-        }
-        .top p:last-child{
-            font-size: 12px;
-            color: #999;
-            font-family: Arial;
-        }
-        .choose_user{
-            overflow: hidden;
-        }
-        .box{
-            float: left;
-            width: 285px;
-            height: 285px;
-            border-radius: 5px;
-            text-align: center;
-            margin: 0 32px;
-            background-color: white;
-        }
-        .pic{
-            margin-top: 60px;
-            margin-bottom: 20px;
-        }
-        .btn{
-            width: 96px;
-            height: 30px;
-            font-size: 14px;
-            margin: 20px auto 0;
-            line-height: 30px;
-            text-align: center;
-            background: transparent;
-            color: #fff;
-            border: 1px solid #fff;
-            border-radius: 15px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 <%-----------导航条-------------%>
@@ -127,7 +41,7 @@
     </div>
     <div class="choose_user">
         <div class="box">
-            <a href="javascript:void(0);">
+            <a href="teacherLogin.jsp">
                 <p class="pic"><img src="http://static.lanqiao.cn/account/images/login/login-teacher.png"></p>
                 <p>我是老师</p>
                 <p class="btn">点击登录</p>
@@ -142,19 +56,5 @@
         </div>
     </div>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<script type="text/javascript">
-    $(function(){
-        // 鼠标移入移出样式改变
-        $(".box").hover(function () {
-            $(this).find("p").eq(1).css({"color":"white"});
-            $(this).css({"background": "#0075B6"});
-        },function () {
-            $(this).find("p").eq(1).css({"color":"#333"});
-            $(this).css({"background": "white"});
-        })
-    })
-</script>
 </body>
 </html>

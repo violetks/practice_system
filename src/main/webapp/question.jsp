@@ -7,62 +7,8 @@
 <head>
     <meta charset="UTF-8">
     <title>进入单个试题</title>
-    <style type="text/css">
-        body{margin: 0;padding: 0;background-color: #f7f9fa;}
-        /*********** 导航条 **********/
-        #nav{
-            width: 100%;
-            height: 80px;
-            background-color: #283443;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        #nav h1{
-            margin-left: 20px;
-        }
-        #nav a{
-            color: white;
-            text-decoration: none;
-        }
-        #nav ul li{
-            float: left;
-            margin-right: 20px;
-            list-style: none;
-        }
-        /*********** 内容部分 **********/
-        #content_box{
-            width: 800px;
-            margin: 30px auto;
-        }
-        #content_box a{
-            display: block;
-            margin-bottom: 20px;
-            text-decoration: none;
-        }
-        #content_box b{
-            line-height: 25px;
-        }
-        #content_box p{
-            text-indent: 2em;
-            margin-top: 0;
-        }
-        /*********** 表格区域 **********/
-        table td{
-            height: 25px;
-        }
-        /*********** 文本输入框 **********/
-        #codeArea{
-            position:relative;
-            width:500px;
-            height:300px;
-            overflow: auto;
-        }
-        #submitCode{
-            margin-top: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/question.css">
 </head>
 <body>
 <%!

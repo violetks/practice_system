@@ -1,0 +1,86 @@
+/*********** 选中试题分类 **********/
+li:nth-child(2) {
+    color: white;
+    background-color: #3c4c5f;
+    border-bottom: 3px solid #e45600;
+}
+
+/*********** 选择试题类型 **********/
+#choose_box {
+    width: 80%;
+    margin: 50px auto;
+}
+
+.top p {
+    text-align: center;
+}
+
+.top p:first-child {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 0;
+}
+
+.top p:last-child {
+    font-size: 12px;
+    color: #999;
+    font-family: Arial;
+}
+
+#choose_box a {
+    color: white;
+    font-size: 40px;
+    font-family: 隶书;
+    text-decoration: none;
+}
+
+.choose_test {
+    margin-top: 30px;
+    overflow: hidden;
+}
+
+.box {
+    float: left;
+    width: 285px;
+    height: 285px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 0 36px;
+    background-color: white;
+}
+
+#choose_p,
+#fill_p,
+#program_p {
+    margin: 0;
+    height: 150px;
+    padding-top: 50px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#choose_p {
+    background-color: rgb(241, 119, 107);
+}
+
+#fill_p {
+    background-color: rgb(255, 115, 0);
+}
+
+#program_p {
+    background-color: rgb(140, 0, 255);
+}
+
+.btn {
+    width: 96px;
+    height: 30px;
+    font-size: 14px;
+    font-family: 黑体;
+    margin: 20px auto 0;
+    line-height: 30px;
+    text-align: center;
+    background: transparent;
+    color: #333;
+    border: 1px solid #333;
+    border-radius: 15px;
+}
