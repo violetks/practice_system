@@ -1,9 +1,6 @@
 package com.violetks.dao;
 
-import com.violetks.entity.Question;
-import com.violetks.entity.RankList;
-import com.violetks.entity.Record;
-import com.violetks.entity.Student;
+import com.violetks.entity.*;
 
 import java.util.Date;
 import java.util.List;
@@ -11,6 +8,13 @@ import java.util.List;
 public interface BaseDao {
     // 获取学生信息
     Student getStudent(int sid,String password);
+    // 添加学生信息
+    boolean addStudent(Student student);
+
+    // 获取教师信息
+    Teacher getTeacher(String phone,String password);
+    // 添加教师信息
+    boolean addTeacher(Teacher teacher);
 
     // 获取每类试题 总数
     int getCount(int category);

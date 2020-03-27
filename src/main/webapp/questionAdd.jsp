@@ -54,10 +54,10 @@
 <table width="40%"  border="0" align="center">
     <tr>
         <td height="25" colspan="1"><br><strong>&gt;&gt;
-            <a href="question_input.jsp"  onclick="javascript:history.back(-1);">
+            <a href="questionInput.jsp"  onclick="javascript:history.back(-1);">
                 返回试题输入</a></strong><br><br></td>
     </tr>
-    <tr >
+    <tr>
 
         <%
             name=request.getParameter("name");

@@ -29,7 +29,7 @@
         <li>阶段检测</li>
         <li><a href="rankList.jsp" target="view_window">排行榜</a></li>
         <li>欢迎：<%=student.getName() %></li>
-        <li>退出</li>
+        <li><a href="logout.jsp" target="_top">退出</a></li>
     </ul>
 </div>
 

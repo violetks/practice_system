@@ -4,12 +4,9 @@ public class Student {
     private int sid = 0;
     private String name = "";
     private String password = "";
+    private int sex = 0;
     private String grades = "";
-    private String gender = "";
-    private String department = "";
-    private int tel = 0;
-    private String pic = "";
-    private String teacher = "";
+    private String classInfo = "";
 
     public Student() { }
 
@@ -25,27 +22,15 @@ public class Student {
 
     public void setPassword(String password) { this.password = password; }
 
+    public int getSex() { return sex; }
+
+    public void setSex(int sex) { this.sex = sex; }
+
     public String getGrades() { return grades; }
 
     public void setGrades(String grades) { this.grades = grades; }
 
-    public String getGender() { return gender; }
+    public String getClassInfo() { return classInfo; }
 
-    public void setGender(String gender) { this.gender = gender; }
-
-    public String getDepartment() { return department; }
-
-    public void setDepartment(String department) { this.department = department; }
-
-    public int getTel() { return tel; }
-
-    public void setTel(int tel) { this.tel = tel; }
-
-    public String getPic() { return pic; }
-
-    public void setPic(String pic) { this.pic = pic; }
-
-    public String getTeacher() { return teacher; }
-
-    public void setTeacher(String teacher) { this.teacher = teacher; }
+    public void setClassInfo(String classInfo) { this.classInfo = classInfo; }
 }

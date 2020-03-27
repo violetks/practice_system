@@ -1,9 +1,6 @@
 package com.violetks.dao;
 
-import com.violetks.entity.Question;
-import com.violetks.entity.RankList;
-import com.violetks.entity.Record;
-import com.violetks.entity.Student;
+import com.violetks.entity.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -53,13 +50,14 @@ public class BaseDaoImpl implements BaseDao{
         Student obj;
         try {
             stmt = this.con.createStatement();
-            rs = stmt.executeQuery("select sid,name,password from tb_student where sid='"+sid+"'and password='"+password+"'");
+            rs = stmt.executeQuery("select * from tb_student where sid='"+sid+"'and password='"+password+"'");
             if (rs.next()) {
                 student.setSid(rs.getInt("sid"));
                 student.setName(rs.getString("name"));
                 student.setPassword(rs.getString("password"));
-//                student.setGender(rs.getString("gender"));
-//                student.setGrades(rs.getString("grades"));
+                student.setSex(rs.getInt("sex"));
+                student.setGrades(rs.getString("grades"));
+                student.setClassInfo(rs.getString("class_info"));
                 obj = student;
                 return obj;
             }
@@ -72,6 +70,90 @@ public class BaseDaoImpl implements BaseDao{
             closeAll(stmt, null);
         }
         return obj;
+    }
+
+    // 添加学生
+    public boolean addStudent(Student student) {
+        try {
+            String sql = "insert into tb_student(sid,name,password,sex,grades,class_info) values(?,?,?,?,?,?)";
+            this.pstm = this.con.prepareStatement(sql);
+            this.pstm.setInt(1, student.getSid());
+            this.pstm.setString(2, student.getName());
+            this.pstm.setString(3, student.getPassword());
+            this.pstm.setInt(4, student.getSex());
+            this.pstm.setString(5, student.getGrades());
+            this.pstm.setString(6, student.getClassInfo());
+            int i = this.pstm.executeUpdate();
+            if (i > 0) {
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (this.pstm != null) {
+                    this.pstm.close();
+                }
+            } catch (Exception e) {
+            }
+        }
+        return false;
+    }
+
+    // 获取教师信息
+    public Teacher getTeacher(String phone, String password) {
+        Statement stmt = null;
+        ResultSet rs = null;
+        Teacher teacher = new Teacher();
+
+        Teacher obj;
+        try {
+            stmt = this.con.createStatement();
+            rs = stmt.executeQuery("select * from tb_teacher where phone='"+phone+"'and password='"+password+"'");
+            if (rs.next()) {
+                teacher.setName(rs.getString("name"));
+                teacher.setPhone(rs.getString("phone"));
+                teacher.setPassword(rs.getString("password"));
+                obj = teacher;
+                return obj;
+            }
+            obj = teacher;
+        } catch (Exception e) {
+            e.printStackTrace();
+            obj = teacher;
+            return obj;
+        } finally {
+            closeAll(stmt, null);
+        }
+        return obj;
+    }
+
+    // 添加教师
+    public boolean addTeacher(Teacher teacher) {
+        try {
+            String sql = "insert into tb_teacher(tid,name,phone,password) values(?,?,?,?)";
+            this.pstm = this.con.prepareStatement(sql);
+            this.pstm.setInt(1, teacher.getTid());
+            this.pstm.setString(2, teacher.getName());
+            this.pstm.setString(3, teacher.getPhone());
+            this.pstm.setString(4, teacher.getPassword());
+            int i = this.pstm.executeUpdate();
+            if (i > 0) {
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (this.pstm != null) {
+                    this.pstm.close();
+                }
+            } catch (Exception e) {
+            }
+        }
+        return false;
     }
 
     // 获取每类试题 总数

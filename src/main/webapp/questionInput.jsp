@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="css/questionInput.css">
 </head>
 <body>
-20180501教师输入试题页面
 <table width="100%" height="12%" border="0" align="center" bgcolor="#7b7b7b">
     <tr>
         <td width="70%"><table width="70%" border="0" align="center">
@@ -17,15 +16,15 @@
                 <td width="9%"><span class="style9">试题分类</span></td>
                 <td width="9%"><span class="style9">试题修改</span></td>
                 <td width="9%"><span class="style9">用户管理</span></td>
-                <td width="9%"><span class="style9"><a href="ranklist.jsp" target="view_window">排行榜</a></span></td>
-                <td width="8%"><span class="style9"><a href="login.jsp">返回首页</a></span></td>
+                <td width="9%"><span class="style9"><a href="rankList.jsp" target="view_window">排行榜</a></span></td>
+                <td width="8%"><span class="style9"><a href="index.jsp">返回首页</a></span></td>
             </tr>
         </table></td>
     </tr>
 </table>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<form action="question_add.jsp" method="post">
+<form action="questionAdd.jsp" method="post">
     <table align="center" width="60%">
         <tr>
             <td colspan="2">试题名称：<input type="text" name="name" style="width:300px"></td>
