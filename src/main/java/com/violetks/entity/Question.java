@@ -4,11 +4,13 @@ import java.util.Date;
 
 public class Question {
     private int qid = 0;
-    private int category = 0;
-    private String name = "";
-    private String content = "";
-    private String keyword = "";
-    private Date addtime;
+    private int qType = 0;       // 试题类型，0-单选，1-多选，2-填空，3-判断，4-编程，5-简答
+    private int qLevel = 0;      // 难度等级，0-较易，1-容易，2-难，3-较难
+    private String qName = "";   // 试题名
+    private String qContent = "";// 试题内容
+    private String qKeyword = "";// 关键字
+    private String qAnswer = ""; // 试题答案
+    private Date addTime;        // 创建时间
 
     public Question() { }
 
@@ -16,23 +18,31 @@ public class Question {
 
     public void setQid(int qid) { this.qid = qid; }
 
-    public int getCategory() { return category; }
+    public int getqType() { return qType; }
 
-    public void setCategory(int category) { this.category = category; }
+    public void setqType(int qType) { this.qType = qType; }
 
-    public String getName() { return name; }
+    public int getqLevel() { return qLevel; }
 
-    public void setName(String name) { this.name = name; }
+    public void setqLevel(int qLevel) { this.qLevel = qLevel; }
 
-    public String getContent() { return content; }
+    public String getqName() { return qName; }
 
-    public void setContent(String content) { this.content = content; }
+    public void setqName(String qName) { this.qName = qName; }
 
-    public String getKeyword() { return keyword; }
+    public String getqContent() { return qContent; }
 
-    public void setKeyword(String keyword) { this.keyword = keyword; }
+    public void setqContent(String qContent) { this.qContent = qContent; }
 
-    public Date getAddtime() { return addtime; }
+    public String getqKeyword() { return qKeyword; }
 
-    public void setAddtime(Date addtime) { this.addtime = addtime; }
+    public void setqKeyword(String qKeyword) { this.qKeyword = qKeyword; }
+
+    public String getqAnswer() { return qAnswer; }
+
+    public void setqAnswer(String qAnswer) { this.qAnswer = qAnswer; }
+
+    public Date getAddTime() { return addTime; }
+
+    public void setAddTime(Date addTime) { this.addTime = addTime; }
 }

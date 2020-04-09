@@ -1,16 +1,16 @@
 <%@ page import="com.violetks.entity.Student" %>
 <%@ page import="com.violetks.entity.Question" %>
-<%@ page import="com.violetks.dao.BaseDaoImpl" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.violetks.dao.ProgramDao" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    Student student = (Student) session.getAttribute("student");
-    if(student.getSid()==0){
-        response.sendRedirect("studentLogin.jsp");
-    }
-    BaseDaoImpl dao = new BaseDaoImpl();
-    int category=Integer.parseInt(request.getParameter("category"));
-    List<Question> questionList=dao.getQuestionList(category);
+//    Student student = (Student) session.getAttribute("student");
+//    if(student.getSid()==0){
+//        response.sendRedirect("studentLogin.jsp");
+//    }
+    ProgramDao dao = new ProgramDao();
+    int q_level=Integer.parseInt(request.getParameter("q_level"));
+    List<Question> questionList =dao.getQuestionListByLevel(q_level);
 %>
 <html>
 <head>
@@ -26,54 +26,60 @@
     <ul>
         <li><a href="index.jsp">首页</a></li>
         <li>试题分类</li>
-        <li><a href="exerciseSet.jsp" target="view_window">练习记录</a></li>
-        <li>阶段检测</li>
-        <li><a href="rankList.jsp" target="view_window">排行榜</a></li>
-        <li>欢迎：<%=student.getName() %></li>
+        <li><a href="exerciseSet.jsp">练习记录</a></li>
+        <%--<li>阶段检测</li>--%>
+        <li><a href="rankList.jsp">排行榜</a></li>
+        <li>欢迎：${student.getsName()}</li>
         <li><a href="logout.jsp" target="_top">退出</a></li>
     </ul>
 </div>
 <%-----------表格区域-------------%>
 <div id="table_area">
-    <a id="first_a" href="programSet.jsp?sid="<%=student.getSid()%> onclick="javascript:history.back(-1);">
+    <a id="first_a" href="programSet.jsp?sid="${student.getSid()} onclick="javascript:history.back(-1);">
         返回试题分类
     </a>
 
-    <%-----------表格区域-------------%>
-    <table border="0" align="center" id="questionTable">
+    <%-----------表头-------------%>
+    <table border="0" align="center" id="tableTh">
         <tr align="center">
             <td><b>试题编号</b></td>
-            <td><b>试题名称</b></td>
+            <td style="width: 150px"><b>试题名称</b></td>
             <td><b>关键字</b></td>
-            <td><b>试题类型</b></td>
-            <td><b>试题状态</b></td>
+            <td><b>难度等级</b></td>
+            <td><b>完成状态</b></td>
             <td><b>进入试题</b></td>
             <td><b>提交记录</b></td>
         </tr>
+    </table>
+
+    <%-----------表格区域-------------%>
+    <table border="0" align="center" id="questionTable">
         <%
-            for (int i=0;i<questionList.size();i++){
+            for (int i = 0; i< questionList.size(); i++){
                 Question question = questionList.get(i);
                 int qid = question.getQid();
         %>
         <tr align="center">
             <td><%=qid %></td>
-            <td><%=question.getName() %></td>
-            <td><%=question.getKeyword() %></td>
-            <td><%if (question.getCategory()==0){%><%="入门训练" %>
-                <% }else if(question.getCategory()==1){%><%="基础练习" %>
-                <% }else if(question.getCategory()==2){%><%="算法练习" %>
-                <% }else{%><%="算法提高" %><%} %>
+            <td style="width: 150px"><%=question.getqName() %></td>
+            <td><%=question.getqKeyword() %></td>
+            <td><%if (question.getqLevel()==0){%><%="较易" %>
+                <% }else if(question.getqLevel()==1){%><%="容易" %>
+                <% }else if(question.getqLevel()==2){%><%="难" %>
+                <% }else{%><%="较难" %><%} %>
             </td>
-            <td><%if (dao.getExResult(student.getSid(),question.getQid(),1)>=1){ %> <%="已完成" %>
-                <% }else{%><%="未完成" %><%} %>
-            </td>
+            <%--<td><%if (dao.getExResult(student.getSid(), question.getQid(),2,1)>=1){ %> <%="已完成" %>--%>
+                <%--<% }else{%><%="未完成" %><%} %>--%>
+            <%--</td>--%>
+            <td>未完成</td>
             <td>
-                <form action="question.jsp" method="post">
+                <form action="programQItem.jsp" method="post">
                     <input type="hidden" name="qid" value=<%=qid %> />
                     <input type="submit" class="enter_btn" value="进入试题" />
                 </form>
             </td>
             <td>提交记录</td>
+            <%--<td><%=dao.getExResult(student.getSid(), question.getQid(),2,1) %></td>--%>
         </tr>
         <% } %>
     </table>

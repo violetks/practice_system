@@ -9,12 +9,18 @@
 <body>
 <div id="login_box">
     <h2>教师登录</h2>
-    <form method="post">
+    <form action="${pageContext.request.contextPath}/TeaLoginServlet" method="post" onsubmit="return checkAll()">
+        <input type="hidden" name="form" value="true"/>
         <div id="form_info">
-            <span>手机号：</span><input type="text" name="phone" id="phone"/><br>
-            <p class="error_msg" id="phone_error">手机号不能为空！</p>
-            <span>密码：</span><input type="password" name="spwd" id="spwd"/><br>
-            <p class="error_msg" id="spwd_error">密码不能为空！</p>
+            <p class="${msg!=null?'error_msg_show':'error_msg'}" id="errorMsg">${msg}</p>
+            <span>电话：</span><input type="text" name="phone" id="phone" placeholder="请输入手机号"
+                                   onblur="checkPhone()"/><br>
+            <p class="error_msg" id="phone_error"></p>
+
+            <span>密码：</span><input type="password" name="tpwd" id="tpwd" placeholder="请输入密码"
+                                   onblur="checkPassword()"/><br>
+            <p class="error_msg" id="tpwd_error"></p>
+
             <a href="resetPwd.jsp">忘记密码？</a>
             <a href="teaRegister.jsp">立即注册&nbsp;|&nbsp;</a>
             <input type="submit" value="登  录" id="login_btn"/>
@@ -22,28 +28,45 @@
     </form>
 </div>
 
-<%
-    String phone = request.getParameter("phone");
-    String spwd = request.getParameter("spwd");
-    if (phone == "" || phone == null) {
-%>
-<script language="JavaScript">
-    document.getElementById("phone_error").style.visibility = "visible";
-    document.getElementById("spwd_error").style.visibility = "hidden";
-</script>
-<%
-} else if (spwd == "" || spwd == null) {
-%>
-<script language="JavaScript">
-    document.getElementById("phone_error").style.visibility = "hidden";
-    document.getElementById("spwd_error").style.visibility = "visible";
-</script>
-<%
-    } else {
-        session.setAttribute("phone", phone);
-        session.setAttribute("spwd", spwd);
-        response.sendRedirect("questionInput.jsp");
+<script type="text/javascript">
+    // 1. 验证手机号
+    function checkPhone() {
+        var phone = document.getElementById("phone").value;
+        var phoneError = document.getElementById("phone_error");
+        if (phone === "" || phone === null) {
+            phoneError.style.display = "block";
+            document.getElementById("phone").style.marginBottom = "0px";
+            phoneError.innerText = "手机号不能为空！";
+            return false;
+        } else {
+            phoneError.style.display = "none";
+            document.getElementById("phone").style.marginBottom = "30px";
+            return true;
+        }
     }
-%>
+
+    // 2. 验证密码
+    function checkPassword() {
+        var tpwd = document.getElementById("tpwd").value;
+        var tpwdError = document.getElementById("tpwd_error");
+        if (tpwd === "" || tpwd === null) {
+            tpwdError.style.display = "block";
+            document.getElementById("tpwd").style.marginBottom = "0px";
+            tpwdError.innerHTML = "密码不能为空！";
+            return false;
+        } else {
+            tpwdError.style.display = "none";
+            document.getElementById("tpwd").style.marginBottom = "30px";
+            return true;
+        }
+    }
+
+    // 3.检查用户所有的输入的是否符合规则
+    function checkAll() {
+        var tphone = checkPhone();
+        var tpwd = checkPassword();
+        return tphone && tpwd;
+    }
+</script>
 </body>
 </html>

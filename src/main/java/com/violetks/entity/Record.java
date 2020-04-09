@@ -5,10 +5,11 @@ import java.util.Date;
 public class Record {
     private int id = 0;
     private Student s = null;
-    private Question q = null;
+    private Question question = null;
     private String name;
-    private int category = 0;
     private int result = 1;
+    private int category = 0;
+    private int level = 0;
     private Date submitTime;
     private int codeLength = 0;
 
@@ -22,9 +23,9 @@ public class Record {
 
     public void setS(Student s) { this.s = s; }
 
-    public Question getQ() { return q; }
+    public Question getQuestion() { return question; }
 
-    public void setQ(Question q) { this.q = q; }
+    public void setQuestion(Question question) { this.question = question; }
 
     public String getName() { return name; }
 
@@ -33,6 +34,10 @@ public class Record {
     public int getCategory() { return category; }
 
     public void setCategory(int category) { this.category = category; }
+
+    public int getLevel() { return level; }
+
+    public void setLevel(int level) { this.level = level; }
 
     public int getResult() { return result; }
 

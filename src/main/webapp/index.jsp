@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="static java.lang.System.out" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -15,7 +14,7 @@
         <li><a href="index.jsp">首页</a></li>
         <li>试题分类</li>
         <li>练习记录</li>
-        <li>阶段检测</li>
+        <%--<li>阶段检测</li>--%>
         <li>排行榜</li>
         <li><a href="#choose_box">登录</a></li>
     </ul>

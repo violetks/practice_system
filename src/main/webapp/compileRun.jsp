@@ -2,8 +2,9 @@
 <%@ page import="com.violetks.entity.Question" %>
 <%@ page import="com.violetks.complierun.JavaCompileRun" %>
 <%@ page import="java.io.File" %>
-<%@ page import="com.violetks.dao.BaseDaoImpl" %>
 <%@ page import="com.violetks.entity.Record" %>
+<%@ page import="com.violetks.dao.RecordDao" %>
+<%@ page import="com.violetks.dao.ProgramDao" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -18,12 +19,12 @@
     final String outputPath = "C://Users//Xionglin//IdeaProjects//practice_system//src//main//resources//output/";
 
     Student student=(Student) session.getAttribute("student");
-    Question question=(Question) session.getAttribute("question");
+    Question question =(Question) session.getAttribute("question");
     int qid = question.getQid();
     session.setAttribute("qid",qid);
     String codeStr = request.getParameter("codeStr");
     if(codeStr==null){
-        response.sendRedirect("question.jsp");
+        response.sendRedirect("programQItem.jsp");
     }else{
         JavaCompileRun jCR = new JavaCompileRun(codeStr);
         try{
@@ -60,25 +61,28 @@
         }
 %>
 <%
-    BaseDaoImpl dao = new BaseDaoImpl();
+    RecordDao recordDao = new RecordDao();
     if(student==null){
         response.sendRedirect("studentLogin.jsp");
     }
     // 练习记录
     Record record = new Record();
     record.setS(student);
-    record.setQ(question);
+    record.setQuestion(question);
     int result = 0;
     if(jCR.isCompileResult() && jCR.isRunResult() && jCR.getScore()==100){
         result = 1;
     }
     record.setResult(result);
-    record.setCategory(question.getCategory());
+//    record.setLevel(question.getLevel());
+//    record.setCategory(question.getCategory());
     //避免运行成功结果重复写入,结果不正确也不写入数据库
     assert student != null;
-    if(dao.getExResult(student.getSid(),question.getQid(),1)<1&&jCR.getScore()==100){
-        dao.addExciseRecord(record);
-    }
+    ProgramDao programDao = new ProgramDao();
+    // 查询练习次数
+//    if(programDao.getExResult(student.getSid(), question.getQid(),2,1)<1&&jCR.getScore()==100){
+//        recordDao.addExciseRecord(record);
+//    }
 %>
 
 <%-----------导航条-------------%>
@@ -87,10 +91,10 @@
     <ul>
         <li><a href="index.jsp">首页</a></li>
         <li><a href="categorySet.jsp">试题分类</a></li>
-        <li><a href="exerciseSet.jsp" target="view_window">练习记录</a></li>
-        <li>阶段检测</li>
-        <li><a href="rankList.jsp" target="view_window">排行榜</a></li>
-        <li>欢迎：<%=student.getName() %></li>
+        <li><a href="exerciseSet.jsp">练习记录</a></li>
+        <%--<li>阶段检测</li>--%>
+        <li><a href="rankList.jsp">排行榜</a></li>
+        <li>欢迎：${student.getsName()}</li>
         <li><a href="logout.jsp" target="_top">退出</a></li>
     </ul>
 </div>
@@ -102,7 +106,7 @@
     <tr>
         <td height="25" colspan="5">
             <b>&gt;&gt;
-                <a href="question.jsp?qid=<%=question.getQid() %>" onclick="javascript:history.back(-1);">返回试题</a>
+                <a href="programQItem.jsp?qid=<%=question.getQid() %>" onclick="javascript:history.back(-1);">返回试题</a>
             </b>
         </td>
     </tr>
@@ -133,27 +137,27 @@
         <td width="96"><div align="right"><b>异常信息</b></div></td>
         <td width="100"><%=jCR.getExceptionString() %></td>
     </tr>
-    <tr>
-        <td> &nbsp;</td>
-    </tr>
-    <tr>
-        <td colspan=6><div align="center"><b>详细记录</b></div></td>
-    </tr>
-    <tr>
-        <td> &nbsp;</td>
-    </tr>
-    <tr>
-        <td width="100"><div align="center"><b>评测点序号</b></div></td>
-        <td width="107"><div align="center"><b>评测结果</b></div></td>
-        <td width="117"><div align="center"><b>得分</b></div></td>
-        <td width="117"><div align="center"><b>下载评测数据</b></div></td>
-    </tr>
-    <tr align="center">
-        <td width="100">待实现</td>
-        <td width="107">待实现</td>
-        <td width="117">待实现</td>
-        <td width="117">待实现</td>
-    </tr>
+    <%--<tr>--%>
+        <%--<td> &nbsp;</td>--%>
+    <%--</tr>--%>
+    <%--<tr>--%>
+        <%--<td colspan=6><div align="center"><b>详细记录</b></div></td>--%>
+    <%--</tr>--%>
+    <%--<tr>--%>
+        <%--<td> &nbsp;</td>--%>
+    <%--</tr>--%>
+    <%--<tr>--%>
+        <%--<td width="100"><div align="center"><b>评测点序号</b></div></td>--%>
+        <%--<td width="107"><div align="center"><b>评测结果</b></div></td>--%>
+        <%--<td width="117"><div align="center"><b>得分</b></div></td>--%>
+        <%--<td width="117"><div align="center"><b>下载评测数据</b></div></td>--%>
+    <%--</tr>--%>
+    <%--<tr align="center">--%>
+        <%--<td width="100">待实现</td>--%>
+        <%--<td width="107">待实现</td>--%>
+        <%--<td width="117">待实现</td>--%>
+        <%--<td width="117">待实现</td>--%>
+    <%--</tr>--%>
 </table>
 <%} %>
 </body>

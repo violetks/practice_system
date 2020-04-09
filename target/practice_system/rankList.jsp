@@ -25,7 +25,7 @@
         <li><a href="index.jsp">首页</a></li>
         <li><a href="categorySet.jsp">试题分类</a></li>
         <li><a href="exerciseSet.jsp" target="view_window">练习记录</a></li>
-        <li>阶段检测</li>
+        <%--<li>阶段检测</li>--%>
         <li style="color: blue">排行榜</li>
         <li>欢迎：<%=student.getName() %></li>
         <li><a href="logout.jsp" target="_top">退出</a></li>

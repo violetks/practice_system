@@ -31,12 +31,24 @@ body{
 input {
     width: 250px;
     height: 28px;
+    margin-bottom: 30px;
     border: 1px solid #999999;
 }
 
 /*********** 错误提示信息 **********/
 .error_msg {
-    visibility: hidden;
+    display: none;
+    margin-left: 48px;
+    padding-left: 5px;
+    font-size: 13px;
+    color: rgb(230, 128, 60);
+    border: 1px solid #E6A23C;
+    border-radius: 5px;
+    background-color: rgb(240, 197, 133);
+}
+
+.error_msg_show {
+    display: block;
     margin-left: 48px;
     padding-left: 5px;
     font-size: 13px;

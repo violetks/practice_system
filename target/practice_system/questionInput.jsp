@@ -7,18 +7,27 @@
     <link rel="stylesheet" href="css/questionInput.css">
 </head>
 <body>
-20180501教师输入试题页面
+<%-----------导航条-------------%>
+<div id="nav">
+    <h1>Java练习系统</h1>
+    <ul>
+        <li><a href="index.jsp">首页</a></li>
+        <li>试题输入</li>
+        <li><a href="exerciseSet.jsp" target="view_window">练习记录</a></li>
+        <%--<li>阶段检测</li>--%>
+        <li><a href="rankList.jsp" target="view_window">排行榜</a></li>
+        <li>欢迎：${teacher.getName()}</li>
+        <li><a href="logout.jsp" target="_top">退出</a></li>
+    </ul>
+</div>
 <table width="100%" height="12%" border="0" align="center" bgcolor="#7b7b7b">
     <tr>
         <td width="70%"><table width="70%" border="0" align="center">
             <tr align="center">
-                <td width="40%"><p class="style4">后台管理</p></td>
                 <td width="9%"><span class="style9">试题输入</span></td>
                 <td width="9%"><span class="style9">试题分类</span></td>
                 <td width="9%"><span class="style9">试题修改</span></td>
                 <td width="9%"><span class="style9">用户管理</span></td>
-                <td width="9%"><span class="style9"><a href="rankList.jsp" target="view_window">排行榜</a></span></td>
-                <td width="8%"><span class="style9"><a href="index.jsp">返回首页</a></span></td>
             </tr>
         </table></td>
     </tr>

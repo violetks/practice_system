@@ -23,7 +23,7 @@ li:nth-child(2) {
     background-color: #409eff;
     text-decoration: none;
 }
-table tr:first-child {
+#tableTh tr:first-child {
     background-color: #eee;
 }
 

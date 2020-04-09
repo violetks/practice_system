@@ -2,11 +2,12 @@ package com.violetks.entity;
 
 public class Student {
     private int sid = 0;
-    private String name = "";
-    private String password = "";
-    private int sex = 0;
-    private String grades = "";
-    private String classInfo = "";
+    private String sName = "";
+    private String sPwd = "";
+    private int sSex = 0;
+    private String sGrade = "";
+    private String sClass = "";
+    private String sDept = "";
 
     public Student() { }
 
@@ -14,23 +15,27 @@ public class Student {
 
     public void setSid(int sid) { this.sid = sid; }
 
-    public String getName() { return name; }
+    public String getsName() { return sName; }
 
-    public void setName(String name) { this.name = name; }
+    public void setsName(String sName) { this.sName = sName; }
 
-    public String getPassword() { return password; }
+    public String getsPwd() { return sPwd; }
 
-    public void setPassword(String password) { this.password = password; }
+    public void setsPwd(String sPwd) { this.sPwd = sPwd; }
 
-    public int getSex() { return sex; }
+    public int getsSex() { return sSex; }
 
-    public void setSex(int sex) { this.sex = sex; }
+    public void setsSex(int sSex) { this.sSex = sSex; }
 
-    public String getGrades() { return grades; }
+    public String getsGrade() { return sGrade; }
 
-    public void setGrades(String grades) { this.grades = grades; }
+    public void setsGrade(String sGrade) { this.sGrade = sGrade; }
 
-    public String getClassInfo() { return classInfo; }
+    public String getsClass() { return sClass; }
 
-    public void setClassInfo(String classInfo) { this.classInfo = classInfo; }
+    public void setsClass(String sClass) { this.sClass = sClass; }
+
+    public String getsDept() { return sDept; }
+
+    public void setsDept(String sDept) { this.sDept = sDept; }
 }
