@@ -1,48 +1,40 @@
 <%@ page import="com.violetks.entity.Student" %>
-<%@ page import="com.violetks.dao.BaseDaoImpl" %>
-<%@ page import="com.violetks.entity.RankList" %>
+<%@ page import="com.violetks.entity.Record" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    Student student = (Student) session.getAttribute("student");
-    if(student.getSid()==0){
-        response.sendRedirect("studentLogin.jsp");
-    }
-    BaseDaoImpl dao = new BaseDaoImpl();
+    List<Record> recordList = dao.getExResult(student.getSid(), 1);
 %>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>年级排行榜</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/rankList.css">
+    <title>${student.getsName() }的练习记录</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/exerciseSet.css">
 </head>
-<body onload="goPage(1,10)">
+<body onload="goPage(1,6)">
 <%-----------导航条-------------%>
 <div id="nav">
     <h1>Java练习系统</h1>
     <ul>
-        <li><a href="index.jsp">首页</a></li>
+        <li><a href="../index.jsp">首页</a></li>
         <li><a href="categorySet.jsp">试题分类</a></li>
-        <li><a href="exerciseSet.jsp" target="view_window">练习记录</a></li>
-        <%--<li>阶段检测</li>--%>
-        <li style="color: blue">排行榜</li>
-        <li>欢迎：<%=student.getName() %></li>
-        <li><a href="logout.jsp" target="_top">退出</a></li>
+        <li><a href="exerciseSet.jsp">练习记录</a></li>
+        <li><a href="rankList.jsp">排行榜</a></li>
+        <li>欢迎：${student.getsName() }</li>
+        <li><a href="../logout.jsp" target="_top">退出</a></li>
     </ul>
 </div>
 
 <div>
     <%-----------表头-------------%>
     <table width="60%" border="0" align="center" id="topTable">
-        <caption><h2>年级排行榜</h2></caption>
-        <%
-            List<RankList> rankList = dao.getExResult(0);
-        %>
         <tr align="center">
-            <td><b>学号</b></td>
-            <td><b>姓名</b></td>
-            <td><b>完成数量</b></td>
+            <td width="107"><b>试题编号</b></td>
+            <td width="207"><b>试题名称</b></td>
+            <td width="157"><b>试题类型</b></td>
+            <td width="157"><b>提交时间</b></td>
         </tr>
         <tr><td colspan="7"><hr></td></tr>
     </table>
@@ -50,13 +42,18 @@
     <%-----------表格区域-------------%>
     <table width="60%" border="0" align="center" id="questionTable">
         <%
-            for (int i=0;i<rankList.size();i++){
-                RankList list = rankList.get(i);
+            for (int i=0;i<recordList.size();i++){
+                Record record = recordList.get(i);
         %>
         <tr align="center">
-            <td width="10%"><%=list.getSid()%></td>
-            <td width="10%"><%=list.getName() %></td>
-            <td width="10%"><%=list.getAmount() %></td>
+            <td width="107"><%=record.getId()%></td>
+            <td width="207"><%=record.getName() %></td>
+            <td width="157"><%if(record.getCategory()==0){%><%="入门训练" %>
+                <% }else if(record.getCategory()==1){%><%="基础练习" %>
+                <% }else if(record.getCategory()==2){%><%="算法练习" %>
+                <% }else{%><%="算法提高" %><%} %>
+            </td>
+            <td width="157"><%=record.getSubmitTime() %></td>
         </tr>
         <% } %>
     </table>

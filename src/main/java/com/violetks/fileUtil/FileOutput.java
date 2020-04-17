@@ -5,12 +5,16 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * 读取文件内容
+ */
 public class FileOutput {
     final String inputPath = "C://Users//Xionglin//IdeaProjects//practice_system//src//main//resources//answer/";
     final String outputPath = "C://Users//Xionglin//IdeaProjects//practice_system//src//main//resources//output/";
 
     public FileOutput() { }
 
+    // 读取教师答案
     public String readFile(String qid, String fix, int index) {
         String str = "无";
         String s = "";
@@ -31,6 +35,7 @@ public class FileOutput {
         return str;
     }
 
+    // 读取学生运行结果
     public String readFile(String sid, String qid) {
         String str = "无";
         String s = "";

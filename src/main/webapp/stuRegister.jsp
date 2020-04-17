@@ -1,10 +1,11 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>学生账号注册</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/stuRegister.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/base.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/stuRegister.css">
 </head>
 <body>
 <div id="register_box">
@@ -66,7 +67,7 @@
         var sidError = document.getElementById("sid_error");
         // 学号的规则： 长度为8-10，只能是数字
         var reg = /^\d{8,10}$/;
-        if (!reg.test(sid)) {
+        if (!reg.TestScanner(sid)) {
             sidError.style.display = "block";
             document.getElementById("sid").style.marginBottom = "0px";
             sidError.innerText = "学号长度为8-10，只能是数字";
@@ -84,7 +85,7 @@
         var snameError = document.getElementById("sname_error");
         // 姓名的规则：昵称的长度为1-15，包含任意的字母、数字、中文，不可以使用其他符号
         var reg = /^([\u4e00-\u9fa5]|[a-zA-Z0-9]){1,15}$/i;
-        if (!reg.test(sName)) {
+        if (!reg.TestScanner(sName)) {
             snameError.style.display = "block";
             document.getElementById("sName").style.marginBottom = "0px";
             snameError.innerText = "昵称的长度为1-15，包含任意的字母、数字、中文，不可以使用其他符号";
@@ -102,7 +103,7 @@
         var spwdError = document.getElementById("spwd_error");
         // 密码的规则： 6-16，包含任意的字母、数字，不可以使用其他符号
         var reg = /^([a-zA-Z0-9]){6,16}$/i;
-        if (!reg.test(spwd)) {
+        if (!reg.TestScanner(spwd)) {
             spwdError.style.display = "block";
             document.getElementById("spwd").style.marginBottom = "0px";
             spwdError.innerText = "密码的长度为 6-16，包含任意的字母、数字，不可以使用其他符号";
@@ -122,7 +123,7 @@
         //密码的规则： 6-16，包含任意的字母、数字，不可以使用其他符号
         var reg = /^([a-zA-Z0-9]){6,16}$/i;
         //确认密码输入符合规则  
-        if (reg.test(confirmPwd)) {
+        if (reg.TestScanner(confirmPwd)) {
             if (spwd !== confirmPwd) {
                 confirmError.style.display = "block";
                 document.getElementById("confirmPwd").style.marginBottom = "0px";

@@ -1,34 +1,32 @@
 <%@ page import="com.violetks.entity.Student" %>
-<%@ page import="com.violetks.dao.BaseDaoImpl" %>
 <%@ page import="com.violetks.entity.RankList" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <%
-    Student student = (Student) session.getAttribute("student");
-    if(student.getSid()==0){
-        response.sendRedirect("studentLogin.jsp");
-    }
-    BaseDaoImpl dao = new BaseDaoImpl();
+//    Student student = (Student) session.getAttribute("student");
+//    if(student.getSid()==0){
+//        response.sendRedirect("studentLogin.jsp");
+//    }
 %>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>年级排行榜</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/rankList.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/rankList.css">
 </head>
 <body onload="goPage(1,10)">
 <%-----------导航条-------------%>
 <div id="nav">
     <h1>Java练习系统</h1>
     <ul>
-        <li><a href="index.jsp">首页</a></li>
+        <li><a href="../index.jsp">首页</a></li>
         <li><a href="categorySet.jsp">试题分类</a></li>
-        <li><a href="exerciseSet.jsp" target="view_window">练习记录</a></li>
-        <%--<li>阶段检测</li>--%>
-        <li style="color: blue">排行榜</li>
-        <li>欢迎：<%=student.getName() %></li>
-        <li><a href="logout.jsp" target="_top">退出</a></li>
+        <li><a href="exerciseSet.jsp">练习记录</a></li>
+        <li><a href="rankList.jsp">排行榜</a></li>
+        <li>欢迎：${student.getsName() }</li>
+        <li><a href="../logout.jsp" target="_top">退出</a></li>
     </ul>
 </div>
 

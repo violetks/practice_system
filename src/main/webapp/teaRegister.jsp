@@ -1,10 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>教师账号注册</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/stuRegister.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/base.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/stuRegister.css">
 </head>
 <body>
 <div id="register_box">
@@ -33,11 +34,11 @@
                                    onblur="checkPhone()" required="required"/><br>
             <p class="${msg!=null?'error_msg_show':'error_msg'}" id="phone_error">${msg}</p>
 
-            <span>验证码：</span><input type="text" name="SmsCheck" id="SmsCheck" placeholder="请输入验证码"
-                                    onblur="checkSms()" required="required" style="width:125px"/>
-            <input type="button" id="sendSmsBtn" name="sendSmsBtn" value="获取验证码"/>
-            <br>
-            <p class="error_msg" id="sms_error"></p>
+            <%--<span>验证码：</span><input type="text" name="SmsCheck" id="SmsCheck" placeholder="请输入验证码"--%>
+                                    <%--onblur="checkSms()" required="required" style="width:125px"/>--%>
+            <%--<input type="button" id="sendSmsBtn" name="sendSmsBtn" value="获取验证码"/>--%>
+            <%--<br>--%>
+            <%--<p class="error_msg" id="sms_error"></p>--%>
 
             <input type="submit" value="注  册" id="register_btn">
         </div>
@@ -53,7 +54,7 @@
         var tnameError = document.getElementById("tname_error");
         // 姓名的规则：昵称的长度为1-15，包含任意的字母、数字、中文，不可以使用其他符号
         var reg = /^([\u4e00-\u9fa5]|[a-zA-Z0-9]){1,15}$/i;
-        if (!reg.test(tName)) {
+        if (!reg.TestScanner(tName)) {
             tnameError.style.display = "block";
             document.getElementById("tName").style.marginBottom = "0px";
             tnameError.innerText = "昵称的长度为1-15，包含任意的字母、数字、中文，不可以使用其他符号";
@@ -71,7 +72,7 @@
         var tpwdError = document.getElementById("tpwd_error");
         // 密码的规则： 6-16，包含任意的字母、数字，不可以使用其他符号
         var reg = /^([a-zA-Z0-9]){6,16}$/i;
-        if (!reg.test(tpwd)) {
+        if (!reg.TestScanner(tpwd)) {
             tpwdError.style.display = "block";
             document.getElementById("tpwd").style.marginBottom = "0px";
             tpwdError.innerText = "密码的长度为 6-16，包含任意的字母、数字，不可以使用其他符号";
@@ -91,7 +92,7 @@
         //密码的规则： 6-16，包含任意的字母、数字，不可以使用其他符号
         var reg = /^([a-zA-Z0-9]){6,16}$/i;
         //确认密码输入符合规则  
-        if (reg.test(confirmPwd)) {
+        if (reg.TestScanner(confirmPwd)) {
             if (tpwd !== confirmPwd) {
                 confirmError.style.display = "block";
                 document.getElementById("confirmPwd").style.marginBottom = "0px";
@@ -117,7 +118,7 @@
         var phone = document.getElementById("phone").value;
         var phoneError = document.getElementById("phone_error");
         var reg = /^1(3|4|5|6|7|8|9)\d{9}$/i;
-        if (!reg.test(phone)) {
+        if (!reg.TestScanner(phone)) {
             phoneError.style.display = "block";
             document.getElementById("phone").style.marginBottom = "0px";
             phoneError.innerText = "手机号格式错误！";
@@ -129,49 +130,49 @@
     }
 
     // 5. 判断是否输入验证码
-    function checkSms() {
-        var SmsCheck = document.getElementById("SmsCheck").value;
-        var smsError = document.getElementById("sms_error");
-        if (SmsCheck === "" || SmsCheck === null) {
-            smsError.style.display = "block";
-            document.getElementById("SmsCheck").style.marginBottom = "0px";
-            smsError.innerText = "请输入验证码";
-            return false;
-        } else {
-            smsError.style.display = "none";
-            document.getElementById("SmsCheck").style.marginBottom = "30px";
-            return true;
-        }
-    }
+    // function checkSms() {
+    //     var SmsCheck = document.getElementById("SmsCheck").value;
+    //     var smsError = document.getElementById("sms_error");
+    //     if (SmsCheck === "" || SmsCheck === null) {
+    //         smsError.style.display = "block";
+    //         document.getElementById("SmsCheck").style.marginBottom = "0px";
+    //         smsError.innerText = "请输入验证码";
+    //         return false;
+    //     } else {
+    //         smsError.style.display = "none";
+    //         document.getElementById("SmsCheck").style.marginBottom = "30px";
+    //         return true;
+    //     }
+    // }
 
     // 6. 点击发送验证码
-    $("#sendSmsBtn").on("click", function () {
-        var phone = $("input[name=phone]").val();
-        if (phone === "" || phone === null) {
-            $("#sms_error").css("display","block");
-            $("#SmsCheck").css("margin-bottom","0px");
-            $("#sms_error").text("请先输入手机号");
-            return false;
-        } else {
-            $("#sms_error").css("display","none");
-            $("#SmsCheck").css("margin-bottom","30px");
-
-            $.ajax({
-                url: "/SmsServlet",
-                async: true,
-                type: "post",
-                dataType: "text",
-                data: {"phone": phone},
-                success: function (data) {
-                    if (data === 'fail') {
-                        alert("发送验证码失败");
-                        return false;
-                    }
-                }
-            });
-            return true;
-        }
-    });
+    // $("#sendSmsBtn").on("click", function () {
+    //     var phone = $("input[name=phone]").val();
+    //     if (phone === "" || phone === null) {
+    //         $("#sms_error").css("display","block");
+    //         $("#SmsCheck").css("margin-bottom","0px");
+    //         $("#sms_error").text("请先输入手机号");
+    //         return false;
+    //     } else {
+    //         $("#sms_error").css("display","none");
+    //         $("#SmsCheck").css("margin-bottom","30px");
+    //
+    //         $.ajax({
+    //             url: "/SmsServlet",
+    //             async: true,
+    //             type: "post",
+    //             dataType: "text",
+    //             data: {"phone": phone},
+    //             success: function (data) {
+    //                 if (data === 'fail') {
+    //                     alert("发送验证码失败");
+    //                     return false;
+    //                 }
+    //             }
+    //         });
+    //         return true;
+    //     }
+    // });
 
     // 7. 检查用户所有的输入的是否符合规则
     function checkAll() {
@@ -179,8 +180,8 @@
         var spwd = checkPassword();
         var confirmPwd = confirmPassword();
         var phone = checkPhone();
-        var sms = checkSms();
-        return sid && sname && spwd && confirmPwd && phone && sms;
+        // var sms = checkSms();
+        return sid && sname && spwd && confirmPwd && phone;
     }
 </script>
 </body>

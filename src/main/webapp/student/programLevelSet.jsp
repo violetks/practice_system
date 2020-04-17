@@ -4,33 +4,29 @@
 <%@ page import="com.violetks.dao.ProgramDao" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-//    Student student = (Student) session.getAttribute("student");
-//    if(student.getSid()==0){
-//        response.sendRedirect("studentLogin.jsp");
-//    }
     ProgramDao dao = new ProgramDao();
     int q_level=Integer.parseInt(request.getParameter("q_level"));
     List<Question> questionList =dao.getQuestionListByLevel(q_level);
 %>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>每类试题集</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/questionSet.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/questionSet.css">
 </head>
 <body onload="goPage(1,6)">
 <%-----------导航条-------------%>
 <div id="nav">
     <h1>Java练习系统</h1>
     <ul>
-        <li><a href="index.jsp">首页</a></li>
-        <li>试题分类</li>
+        <li><a href="../index.jsp">首页</a></li>
+        <li><a href="categorySet.jsp">试题分类</a></li>
         <li><a href="exerciseSet.jsp">练习记录</a></li>
-        <%--<li>阶段检测</li>--%>
         <li><a href="rankList.jsp">排行榜</a></li>
         <li>欢迎：${student.getsName()}</li>
-        <li><a href="logout.jsp" target="_top">退出</a></li>
+        <li><a href="../logout.jsp" target="_top">退出</a></li>
     </ul>
 </div>
 <%-----------表格区域-------------%>

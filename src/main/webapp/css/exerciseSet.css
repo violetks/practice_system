@@ -1,3 +1,11 @@
+/*********** 选中练习记录 **********/
+#nav li:nth-child(3) {
+    color: white;
+    background-color: #3c4c5f;
+    border-bottom: 3px solid #e45600;
+}
+
+
 /*********** 表格区域 **********/
 #topTable{
     margin-top: 60px;

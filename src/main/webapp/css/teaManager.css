@@ -1,0 +1,55 @@
+/*********** aside侧边栏 ***********/
+#aside {
+    float: left;
+    width: 210px;
+    height: 90vh;
+    color: rgb(191, 203, 217);
+    background-color: #304156;
+}
+
+#aside ul {
+    padding-left: 0;
+    list-style: none;
+    line-height: 56px;
+}
+
+
+#aside a {
+    display: block;
+    cursor: pointer;
+}
+
+/*********** 一级菜单 ***********/
+#aside ul li{
+    padding-left: 20px;
+}
+
+#aside ul li:hover {
+    color: white;
+    background-color: rgb(38, 52, 69);
+    border-right: 3px solid #e45600;
+}
+
+/*********** 二级菜单 ***********/
+#aside ul li ul {
+    display: none;
+}
+
+#aside ul li:hover ul {
+    display: block;
+}
+
+#aside ul li ul li {
+    line-height: 50px;
+    margin-left: -20px;
+    background-color: #1f2d3d;
+}
+
+#aside ul li ul li:hover {
+    background-color: #001528;
+}
+
+/*********** main_box ***********/
+#main_box {
+    padding: 10px 10px 10px 220px;
+}

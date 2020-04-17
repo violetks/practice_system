@@ -1,5 +1,5 @@
 /*********** 选中试题分类 **********/
-li:nth-child(2) {
+#nav li:nth-child(2) {
     color: white;
     background-color: #3c4c5f;
     border-bottom: 3px solid #e45600;
@@ -62,4 +62,17 @@ li:nth-child(2) {
     height: 600px;
     color: white;
     background-color: #272822;
+}
+
+/*********** 运行结果对话框 **********/
+#compile_dialog {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #eee;
 }

@@ -35,7 +35,7 @@ public class TeaLoginServlet extends HttpServlet {
             Teacher t = teacherService.getTeacher(teacher);
             if (t != null) {
                 request.getSession().setAttribute("teacher", t);
-                request.getRequestDispatcher("/questionInput.jsp").forward(request, response);
+                request.getRequestDispatcher("/teacher/teacherManager.jsp").forward(request, response);
             } else {
                 request.setAttribute("msg", "手机号或密码不正确");
                 request.getRequestDispatcher("/teacherLogin.jsp").forward(request, response);

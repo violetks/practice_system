@@ -52,29 +52,6 @@ public class ProgramDao extends BaseDao {
         return 0;
     }
 
-    // 获取不同难度等级试题 已解决数量
-    // programSet.jsp
-    // q_level : 难度等级
-    // q_type : 试题类型，0-单选，1-多选，2-填空，3-判断，4-编程，5-简答
-//    public int getResolvedCount(int sid, int q_level, int q_type, int result) {
-//        Statement stmt = null;
-//        ResultSet rs = null;
-//
-//        try {
-//            stmt = this.con.createStatement();
-//            rs = stmt.executeQuery("select count(*) as sum from tb_record where _sid=" + sid + " and level=" + level + " and category=" + category + " and result=" + result);
-//            if (rs.next()) {
-//                int count = rs.getInt("sum");
-//                return count;
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        } finally {
-//            closeAll(stmt, null);
-//        }
-//        return 0;
-//    }
-
     // 获取不同难度等级试题 更新时间
     // programSet.jsp
     public Date getLastTime(int q_level) {
@@ -130,27 +107,6 @@ public class ProgramDao extends BaseDao {
         return questionList;
     }
 
-    // 获取每道题完成次数
-    // programLevelSet.jsp
-//    public int getExResult(int sid, int qid, int category, int result) {
-//        Statement stmt = null;
-//        ResultSet rs = null;
-//
-//        try {
-//            stmt = this.con.createStatement();
-//            rs = stmt.executeQuery("select count(*) as sum from tb_record where _sid=" + sid + " and _qid=" + qid + " and category=" + category + " and result=" + result);
-//            if (rs.next()) {
-//                int count = rs.getInt("sum");
-//                return count;
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        } finally {
-//            closeAll(stmt, null);
-//        }
-//        return 0;
-//    }
-
     // 获取单个编程题 详细内容
     // programQItem.jsp
     public Question getQuestionItem(int qid) {
@@ -180,4 +136,150 @@ public class ProgramDao extends BaseDao {
         }
         return question;
     }
+
+    // 获取最后一次添加的题信息
+    public int getLastQid(){
+        Statement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            stmt = this.con.createStatement();
+            rs = stmt.executeQuery("select * from tb_question order by q_id desc limit 1");
+            if (rs.next()) {
+                int qid = rs.getInt("q_id");
+                return qid;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        } finally {
+            closeAll(stmt, null);
+        }
+        return 0;
+    }
+
+    // 添加编程题
+    public boolean addQuestion(Question question) {
+        try {
+            String sql = "insert into tb_question(q_type,q_level,q_name,q_content,q_keyword) values(?,?,?,?,?)";
+            this.pstm = this.con.prepareStatement(sql);
+            this.pstm.setInt(1, question.getqType());
+            this.pstm.setInt(2, question.getqLevel());
+            this.pstm.setString(3, question.getqName());
+            this.pstm.setString(4, question.getqContent());
+            this.pstm.setString(5, question.getqKeyword());
+            int i = this.pstm.executeUpdate();
+            if (i > 0) {
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (this.pstm != null) {
+                    this.pstm.close();
+                }
+            } catch (Exception e) {
+            }
+        }
+        return false;
+    }
+
+    // 更新某道题
+    public boolean updateQuestion(int qid, Question question) {
+        try {
+            String sql = "update tb_question set q_level=?,q_name=?,q_content=?,q_keyword=?,q_answer=? where q_id=" + qid;
+            this.pstm = this.con.prepareStatement(sql);
+            this.pstm.setInt(1, question.getqLevel());
+            this.pstm.setString(2, question.getqName());
+            this.pstm.setString(3, question.getqContent());
+            this.pstm.setString(4, question.getqKeyword());
+            this.pstm.setString(5, question.getqAnswer());
+            int i = this.pstm.executeUpdate();
+            if (i > 0) {
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (this.pstm != null) {
+                    this.pstm.close();
+                }
+            } catch (Exception e) {
+            }
+        }
+        return false;
+    }
+
+    // 删除某道题
+    public boolean deleteQuestion(int qid) {
+        try {
+            String sql = "delete from tb_question where q_id=" + qid;
+            this.pstm = this.con.prepareStatement(sql);
+            int i = this.pstm.executeUpdate();
+            if (i > 0) {
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (this.pstm != null) {
+                    this.pstm.close();
+                }
+            } catch (Exception e) {
+            }
+        }
+        return false;
+    }
+
+    // 获取不同难度等级试题 已解决数量
+    // programSet.jsp
+    // q_level : 难度等级
+    // q_type : 试题类型，0-单选，1-多选，2-填空，3-判断，4-编程，5-简答
+    // result : 0-未解决，1-已解决
+    public int getResolvedCount(int sid, int q_level, int q_type, int result) {
+        Statement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            String sql = "select count(DISTINCT r.q_id) as sum from tb_record r INNER JOIN tb_question q ON r.q_id = q.q_id where r.s_id="+sid+" and r.s_result="+result+" and q.q_level="+q_level+" and q.q_type="+q_type;
+            stmt = this.con.createStatement();
+            rs = stmt.executeQuery(sql);
+            if (rs.next()) {
+                int count = rs.getInt("sum");
+                return count;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeAll(stmt, null);
+        }
+        return 0;
+    }
+
+    // 获取每道题完成次数
+    // programLevelSet.jsp
+//    public int getExResult(int sid, int qid, int category, int result) {
+//        Statement stmt = null;
+//        ResultSet rs = null;
+//
+//        try {
+//            stmt = this.con.createStatement();
+//            rs = stmt.executeQuery("select count(*) as sum from tb_record where _sid=" + sid + " and _qid=" + qid + " and category=" + category + " and result=" + result);
+//            if (rs.next()) {
+//                int count = rs.getInt("sum");
+//                return count;
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        } finally {
+//            closeAll(stmt, null);
+//        }
+//        return 0;
+//    }
 }

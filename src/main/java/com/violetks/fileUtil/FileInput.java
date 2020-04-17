@@ -4,6 +4,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 
+/**
+ * 将教师答案保存到文件
+ */
 public class FileInput {
     final String inputPath = "C://Users//Xionglin//IdeaProjects//practice_system//src//main//resources//answer/";
 

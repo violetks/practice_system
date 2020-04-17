@@ -10,22 +10,14 @@ public class TestFileCompileRun {
     }
     public static void main(String[] args) {
         StringBuilder src = new StringBuilder();
-        src.append("import java.util.Scanner;");
         src.append("public class Main{");
-        src.append("int sum=0;");
-        src.append("public int getSum(int m){");
-        src.append("for (int i=0;i<=m;i++) {");
-        src.append("sum=sum+i;");
-        src.append("}");
-        src.append("return sum;");
-        src.append("}");
         src.append("public static void main(String[] args) {");
-        src.append("Main t=new Main();");
-        src.append("Scanner sc=new Scanner(System.in);\n int m=sc.nextInt();");
-        src.append("System.out.println(t.getSum(m));");
+        src.append("System.out.println(\"*\");");
+        src.append("System.out.println(\"***\");");
+        src.append("System.out.println(\"******\");");
         src.append("}}\n");
         JavaCompileRun jCR = new JavaCompileRun(new String(src));
-        jCR.codeCompile(new String(src), 1, 111);
+        jCR.codeCompile(new String(src), 1, 2016206929);
         if (!jCR.isCompileResult()) {
             System.out.println("编译错误");
         } else if (!jCR.isRunResult()) {
@@ -34,8 +26,8 @@ public class TestFileCompileRun {
             int score = 0;
 
             for(int j = 1; j < 6; ++j) {
-                String file1 = "d://test/output10" + j + ".txt";
-                String file2 = "d://test/answer0" + j + ".txt";
+                String file1 = "d://TestScanner/output10" + j + ".txt";
+                String file2 = "d://TestScanner/answer0" + j + ".txt";
                 if (jCR.fileCompare(file1, file2)) {
                     score += 20;
                     jCR.setScore(score);

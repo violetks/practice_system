@@ -4,50 +4,120 @@ import java.util.Date;
 
 public class Record {
     private int id = 0;
-    private Student s = null;
-    private Question question = null;
-    private String name;
-    private int result = 1;
-    private int category = 0;
-    private int level = 0;
-    private Date submitTime;
-    private int codeLength = 0;
+    private int sid = 0;
+    private int qid = 0;
+    private String cAnswer = "";    // 标准答案
+    private String sAnswer = "";    // 学生代码运行结果
+//    private String sCode = "";      // 学生提交代码
+    private int sRate = 0;           // 代码通过率
+    private int tScore = 0;         // 满分
+    private int sScore = 0;         // 得分
+    private int tid = 0;            // 阅卷人
+    private int sResult = 0;        // 练习结果，0-未解决；1-已解决
+    private Date submitTime;        // 提交时间
+//    private Student s = null;
+//    private Question question = null;
+//    private String name;
+//    private int result = 1;
+//    private int category = 0;
+//    private int level = 0;
+//    private int codeLength = 0;
 
     public Record() { }
 
-    public int getId() { return id; }
+    public int getId() {
+        return id;
+    }
 
-    public void setId(int id) { this.id = id; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public Student getS() { return s; }
+    public int getSid() {
+        return sid;
+    }
 
-    public void setS(Student s) { this.s = s; }
+    public void setSid(int sid) {
+        this.sid = sid;
+    }
 
-    public Question getQuestion() { return question; }
+    public int getQid() {
+        return qid;
+    }
 
-    public void setQuestion(Question question) { this.question = question; }
+    public void setQid(int qid) {
+        this.qid = qid;
+    }
 
-    public String getName() { return name; }
+    public String getcAnswer() {
+        return cAnswer;
+    }
 
-    public void setName(String name) { this.name = name; }
+    public void setcAnswer(String cAnswer) {
+        this.cAnswer = cAnswer;
+    }
 
-    public int getCategory() { return category; }
+    public String getsAnswer() {
+        return sAnswer;
+    }
 
-    public void setCategory(int category) { this.category = category; }
+    public void setsAnswer(String sAnswer) {
+        this.sAnswer = sAnswer;
+    }
 
-    public int getLevel() { return level; }
+//    public String getsCode() {
+//        return sCode;
+//    }
+//
+//    public void setsCode(String sCode) {
+//        this.sCode = sCode;
+//    }
 
-    public void setLevel(int level) { this.level = level; }
+    public int getsRate() {
+        return sRate;
+    }
 
-    public int getResult() { return result; }
+    public void setsRate(int sRate) {
+        this.sRate = sRate;
+    }
 
-    public void setResult(int result) { this.result = result; }
+    public int gettScore() {
+        return tScore;
+    }
 
-    public Date getSubmitTime() { return submitTime; }
+    public void settScore(int tScore) {
+        this.tScore = tScore;
+    }
 
-    public void setSubmitTime(Date submitTime) { this.submitTime = submitTime; }
+    public int getsScore() {
+        return sScore;
+    }
 
-    public int getCodeLength() { return codeLength; }
+    public void setsScore(int sScore) {
+        this.sScore = sScore;
+    }
 
-    public void setCodeLength(int codeLength) { this.codeLength = codeLength; }
+    public int getTid() {
+        return tid;
+    }
+
+    public void setTid(int tid) {
+        this.tid = tid;
+    }
+
+    public int getsResult() {
+        return sResult;
+    }
+
+    public void setsResult(int sResult) {
+        this.sResult = sResult;
+    }
+
+    public Date getSubmitTime() {
+        return submitTime;
+    }
+
+    public void setSubmitTime(Date submitTime) {
+        this.submitTime = submitTime;
+    }
 }

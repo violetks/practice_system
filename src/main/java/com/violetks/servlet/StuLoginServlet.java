@@ -35,8 +35,9 @@ public class StuLoginServlet extends HttpServlet {
             Student s = studentService.getStudent(student);
             if (s != null) {
                 request.getSession().setAttribute("student", s);
-                request.getRequestDispatcher("/categorySet.jsp").forward(request, response);
-            } else {
+                request.getRequestDispatcher("/student/categorySet.jsp").forward(request, response);
+            }
+            else {
                 request.setAttribute("msg", "用户名或密码不正确");
                 request.getRequestDispatcher("/studentLogin.jsp").forward(request, response);
             }

@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -12,10 +13,9 @@
     <h1>Java练习系统</h1>
     <ul>
         <li><a href="index.jsp">首页</a></li>
-        <li>试题分类</li>
-        <li>练习记录</li>
-        <%--<li>阶段检测</li>--%>
-        <li>排行榜</li>
+        <li><a href="student/categorySet.jsp">试题分类</a></li>
+        <li><a href="student/exerciseSet.jsp">练习记录</a></li>
+        <li><a href="student/rankList.jsp">排行榜</a></li>
         <li><a href="#choose_box">登录</a></li>
     </ul>
 </div>

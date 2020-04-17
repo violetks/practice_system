@@ -2,10 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>重置密码</title>
+    <title>学生列表</title>
 </head>
 <body>
-重置密码页
+学生列表
 </body>
 </html>

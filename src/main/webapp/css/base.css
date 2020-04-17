@@ -1,6 +1,12 @@
-body{margin: 0;padding: 0;background-color: #f7f9fa;}
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f7f9fa;
+}
+
 /*********** 导航条 **********/
-#nav{
+#nav {
     width: 100%;
     height: 80px;
     background-color: #283443;
@@ -9,17 +15,26 @@ body{margin: 0;padding: 0;background-color: #f7f9fa;}
     justify-content: space-between;
     align-items: center;
 }
-#nav h1{
+
+#nav h1 {
     margin-left: 20px;
 }
-#nav a{
+
+#nav a {
     color: #ccc;
     text-decoration: none;
 }
-#nav ul li{
+
+#nav ul li {
     float: left;
     padding: 0 8px;
     margin-right: 20px;
     list-style: none;
-    line-height: 77px;
+    line-height: 74px;
+}
+
+#nav li:hover {
+    color: white;
+    background-color: #3c4c5f;
+    border-bottom: 3px solid #e45600;
 }
