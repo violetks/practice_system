@@ -13,12 +13,17 @@ public class CodeInput {
     public CodeInput() { }
 
     public boolean createDir(int sid) {
+        // 先创建codeStr文件夹
+        File ans = new File(codePath);
+        if (!ans.exists()) {
+            ans.mkdir();
+        }
+        // 在codeStr文件夹下创建每题文件夹，以题号命名
         File file = new File(codePath + sid);
         if (!file.exists()) {
-            return file.mkdir();
-        } else {
-            return true;
+            file.mkdir();
         }
+        return true;
     }
 
     public boolean createFile(int sid, int qid, String str) {
@@ -31,14 +36,6 @@ public class CodeInput {
             FileWriter fw = new FileWriter(file, true);
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(str);
-
-//            for (int i = 0; i < str.length; ++i) {
-//                for (int j = 0; j < str[i].length; ++j) {
-//                    bw.write(str[i][j] + " ");
-//                }
-//                bw.write("\r\n");
-//            }
-
             bw.close();
             fw.close();
             return true;

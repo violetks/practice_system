@@ -10,6 +10,7 @@ public class Question {
     private String qContent = "";// 试题内容
     private String qKeyword = "";// 关键字
     private String qAnswer = ""; // 试题答案
+    private int tScore = 0;      // 题目满分
     private Date addTime;        // 创建时间
 
     public Question() { }
@@ -41,6 +42,10 @@ public class Question {
     public String getqAnswer() { return qAnswer; }
 
     public void setqAnswer(String qAnswer) { this.qAnswer = qAnswer; }
+
+    public int gettScore() { return tScore; }
+
+    public void settScore(int tScore) { this.tScore = tScore; }
 
     public Date getAddTime() { return addTime; }
 

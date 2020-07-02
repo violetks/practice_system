@@ -1,0 +1,109 @@
+/*********** 提示信息 **********/
+.error_msg {
+    display: none;
+}
+
+.error_msg_show {
+    display: block;
+    width: 710px;
+    padding: 10px 5px;
+    font-size: 13px;
+    color: #67c23a;
+    border: 1px solid #c2e7b0;
+    border-radius: 5px;
+    background-color: #f0f9eb;
+}
+
+.info_msg{
+    display: block;
+    width: 710px;
+    padding: 10px 5px;
+    font-size: 13px;
+    color: #409eff;
+    border: 1px solid #b3d8ff;
+    border-radius: 5px;
+    background-color: #ecf5ff;
+}
+
+/*********** 表格区域 **********/
+#tableTh tr:first-child {
+    background-color: #eee;
+}
+
+table td {
+    width: 100px;
+    height: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid #eee;
+    font-size: 13px;
+}
+
+.qName {
+    color: #409eff;
+    cursor: pointer;
+}
+
+/*********** 单选题 **********/
+.single_tag{
+    color: rgb(241, 119, 107);
+    border: 1px solid rgb(241, 119, 107);
+    border-radius: 3px;
+    padding: 3px;
+    margin-right: 5px;
+}
+
+/*********** 填空题 **********/
+.fill_tag{
+    color: rgb(255, 115, 0);
+    border: 1px solid rgb(255, 115, 0);
+    border-radius: 3px;
+    padding: 3px;
+    margin-right: 5px;
+}
+
+/*********** 编程题 **********/
+.program_tag{
+    color: rgb(140, 0, 255);
+    border: 1px solid rgb(140, 0, 255);
+    border-radius: 3px;
+    padding: 3px;
+    margin-right: 5px;
+}
+
+/*********** 已批阅 **********/
+.marked_tag{
+    color: #1BBC9B;
+    border: 1px solid #1BBC9B;
+    border-radius: 10px;
+    padding: 3px;
+    margin-right: 5px;
+}
+
+/*********** 未批阅 **********/
+.mark_tag{
+    color: red;
+    border: 1px solid red;
+    border-radius: 10px;
+    padding: 3px;
+    margin-right: 5px;
+}
+
+/*********** 展开行 **********/
+.open_tr {
+    display: none;
+}
+
+.qDetails{
+    width: 550px;
+    padding: 0 10px;
+    border: 1px solid #1BBC9B;
+    border-radius: 3px;
+}
+
+.qDetails h4{
+    color: #fff;
+    margin: 0;
+    padding: 15px;
+    background-color: #1BBC9B;
+}

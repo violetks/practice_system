@@ -15,7 +15,7 @@ public class StaticParam {
     final static String accessKeyId = "";// 你的accessKeyId,填你自己的 上文配置所得  自行配置
     final static String accessKeySecret = "";// 你的accessKeySecret,填你自己的 上文配置所得 自行配置
     // 必填:短信签名-可在短信控制台中找到
-    final static String SignName = "Java题库系统"; // 阿里云配置你自己的短信签名填入
+    final static String SignName = ""; // 阿里云配置你自己的短信签名填入
     // 必填:短信模板CODE-可在短信控制台中找到
     final static String TemplateCode = ""; // 阿里云配置你自己的短信模板填入
 }

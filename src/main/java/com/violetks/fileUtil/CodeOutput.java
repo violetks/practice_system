@@ -11,7 +11,7 @@ import java.io.IOException;
 public class CodeOutput {
     final String codePath = "C://Users//Xionglin//IdeaProjects//practice_system//src//main//resources//codeStr/";
 
-    public String readFile(String sid, String qid) {
+    public String readFile(int sid, int qid) {
         String str = "无";
         String s = "";
 

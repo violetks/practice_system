@@ -1,0 +1,41 @@
+.error_msg {
+    display: none;
+}
+
+.error_msg_show {
+    display: block;
+    width: 710px;
+    padding: 10px 5px;
+    font-size: 13px;
+    color: #67c23a;
+    border: 1px solid #c2e7b0;
+    border-radius: 5px;
+    background-color: #f0f9eb;
+}
+
+span {
+    font-family: 微软雅黑;
+}
+
+.info_msg{
+    display: block;
+    width: 710px;
+    padding: 10px 5px;
+    font-size: 13px;
+    color: #409eff;
+    border: 1px solid #b3d8ff;
+    border-radius: 5px;
+    background-color: #ecf5ff;
+}
+
+textarea {
+    vertical-align: top;
+}
+
+/*********** 添加新题按钮 **********/
+.add_btn {
+    color: #fff;
+    padding: 7px 14px;
+    border: 1px solid #409eff;
+    background-color: #409eff;
+}

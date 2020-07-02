@@ -1,0 +1,82 @@
+/*********** 选中试题分类 **********/
+#nav li:nth-child(2) {
+    color: white;
+    background-color: #3c4c5f;
+    border-bottom: 3px solid #e45600;
+}
+
+/*********** 试题详情部分 **********/
+#question_content {
+    width: 80%;
+    margin: 30px auto;
+    padding: 0 10px;
+    border: 1px solid #eee;
+    background-color: white;
+}
+
+/*********** 单选题 **********/
+.single_tag{
+    font-size: 13px;
+    color: rgb(241, 119, 107);
+    border: 1px solid rgb(241, 119, 107);
+    border-radius: 3px;
+    padding: 3px;
+    margin-right: 5px;
+}
+
+/*********** 填空题 **********/
+.fill_tag{
+    font-size: 13px;
+    color: rgb(255, 115, 0);
+    border: 1px solid rgb(255, 115, 0);
+    border-radius: 3px;
+    padding: 3px;
+    margin-right: 5px;
+}
+
+/*********** 关键字 **********/
+.keyword {
+    color: #333;
+    font-size: 12px;
+    padding: 2px 10px;
+    margin-right: 2px;
+    margin-bottom: 5px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+/*********** 提交按钮 **********/
+.add_btn {
+    color: #fff;
+    padding: 7px 14px;
+    border: 1px solid #409eff;
+    background-color: #409eff;
+}
+
+/*********** 提示信息 **********/
+.error_msg {
+    display: none;
+}
+
+.error_msg_show {
+    display: block;
+    width: 710px;
+    padding: 10px 5px;
+    font-size: 13px;
+    color: #67c23a;
+    border: 1px solid #c2e7b0;
+    border-radius: 5px;
+    background-color: #f0f9eb;
+}
+
+.info_msg{
+    display: block;
+    width: 710px;
+    padding: 10px 5px;
+    font-size: 13px;
+    color: #409eff;
+    border: 1px solid #b3d8ff;
+    border-radius: 5px;
+    background-color: #ecf5ff;
+}

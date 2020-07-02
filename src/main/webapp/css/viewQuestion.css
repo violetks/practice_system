@@ -1,0 +1,70 @@
+/*********** 表格区域 **********/
+#tableTh tr:first-child {
+    background-color: #eee;
+}
+
+table td {
+    width: 100px;
+    height: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid #eee;
+}
+
+.qName {
+    color: #409eff;
+    cursor: pointer;
+}
+
+/*********** 展开行 **********/
+.open_tr {
+    display: none;
+}
+
+.qDetails{
+    width: 550px;
+    padding: 0 10px;
+    border: 1px solid #1BBC9B;
+    border-radius: 3px;
+}
+
+.qDetails h4{
+    color: #fff;
+    margin: 0;
+    padding: 15px;
+    background-color: #1BBC9B;
+}
+
+/*********** 按钮 **********/
+.enter_btn {
+    cursor: pointer;
+    outline: none;
+    color: #409eff;
+    border-radius: 15px;
+    background-color: #ecf5ff;
+    border: 1px solid #b3d8ff;
+}
+
+.enter_btn:hover{
+    color: white;
+    background-color: #409eff;
+}
+
+/*********** 分页区域 **********/
+#changePages {
+    margin: 25px auto;
+    text-align: center;
+    color: #606266;
+    font-size: 15px;
+    font-family: 宋体;
+}
+
+#changePages a {
+    text-align: center;
+    margin: 30px 5px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #f4f4f5;
+    text-decoration: none;
+    cursor: pointer;
+}

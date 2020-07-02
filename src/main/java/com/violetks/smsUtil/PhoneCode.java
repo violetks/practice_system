@@ -31,7 +31,7 @@ public class PhoneCode {
             return "";
         }
         /**
-         * 短信验证---阿里大于工具
+         * 短信验证---阿里云工具
          */
 
         // 设置超时时间-可自行调整
@@ -94,7 +94,7 @@ public class PhoneCode {
             e.printStackTrace();
             return "由于系统维护，暂时无法注册！！！";
         }
-        return "true";
+        return code;
     }
 
     /**

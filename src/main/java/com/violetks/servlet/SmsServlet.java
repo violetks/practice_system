@@ -11,7 +11,6 @@ import static com.violetks.smsUtil.PhoneCode.getPhonemsg;
 
 /**
  * 发送短信验证码
- *
  * param: phone手机号
  */
 @WebServlet("/SmsServlet")
@@ -23,17 +22,16 @@ public class SmsServlet extends HttpServlet {
         String phone = request.getParameter("phone");
         String result = getPhonemsg(phone);
 
-        if (result!="true"){
+        if (result == null) {
             request.setAttribute("msg", "fail");
-        }else {
+        } else {
             // 获取生成的验证码并存到Session
-//            String code = ;
-//            request.getSession().setAttribute("student", s);
+            request.getSession().setAttribute("sms_code", result);
             request.setAttribute("msg", "success");
         }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request,response);
+        doPost(request, response);
     }
 }

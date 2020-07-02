@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 
 public class TeacherDao extends BaseDao {
     // 登录 - 获取教师信息
+    // TeaLoginServlet
+    // teacherLogin.jsp
     public Teacher getTeacher(Teacher teacher) {
         ResultSet rs = null;
 
@@ -19,6 +21,7 @@ public class TeacherDao extends BaseDao {
             Teacher t = null;
             if (rs.next()) {
                 t = new Teacher();
+                t.setTid(rs.getInt("t_id"));
                 t.settName(rs.getString("t_name"));
                 t.settPwd(rs.getString("t_pwd"));
                 t.settPhone(rs.getString("t_phone"));
@@ -39,6 +42,8 @@ public class TeacherDao extends BaseDao {
     }
 
     // 注册 - 添加教师
+    // TeaRegisterServlet
+    // teaRegister.jsp
     public boolean addTeacher(Teacher teacher) {
         try {
             String sql = "insert into tb_teacher(t_name,t_phone,t_pwd,t_dept) values(?,?,?,?)";
@@ -66,6 +71,8 @@ public class TeacherDao extends BaseDao {
     }
 
     // 注册 - 判断手机号是否重复
+    // TeaRegisterServlet
+    // teaRegister.jsp
     public Teacher getTeacherByPhone(Teacher teacher) {
         ResultSet rs = null;
 

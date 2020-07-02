@@ -1,0 +1,52 @@
+/*********** 选择上传试题类型 **********/
+#q_type {
+    float: left;
+    width: 150px;
+    margin-right: 10px;
+}
+
+#q_type h3{
+    margin-left: 10px;
+}
+#q_type ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+#q_type ul li {
+    width: 148px;
+    cursor: pointer;
+    padding: 7px;
+    border: 1px solid #e45600;
+    font-size: 13px;
+    margin-bottom: 10px;
+    margin-left: -30px;
+}
+
+.selected {
+    color: white;
+    border: 1px solid #e45600;
+    background-color: #e45600;
+}
+
+/*********** 可变iframe **********/
+#change_box{
+    float: left;
+    width: 900px;
+}
+#changeContent{
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+/*********** 提示信息 **********/
+.info_msg{
+    display: block;
+    width: 710px;
+    padding: 10px 5px;
+    font-size: 13px;
+    color: #409eff;
+    border: 1px solid #b3d8ff;
+    border-radius: 5px;
+    background-color: #ecf5ff;
+}

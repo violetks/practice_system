@@ -13,12 +13,17 @@ public class FileInput {
     public FileInput() { }
 
     public boolean createDir(int qid) {
+        // 先创建answer文件夹
+        File ans = new File(inputPath);
+        if (!ans.exists()) {
+            ans.mkdir();
+        }
+        // 在answer文件夹下创建每题文件夹，以题号命名
         File file = new File(inputPath + qid);
         if (!file.exists()) {
-            return file.mkdir();
-        } else {
-            return true;
+            file.mkdir();
         }
+        return true;
     }
 
     public boolean createFile(int qid, String fid, String[][] str) {

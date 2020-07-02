@@ -71,7 +71,7 @@ public class JavaCompileRun {
     }
 
     /**
-     * 将输入的代码文件和已有答案文件比较
+     * 将运行结果文件和已有答案文件比较
      * 参数是文件路径
      *
      * @return true/false
@@ -180,6 +180,10 @@ public class JavaCompileRun {
                     Class<?> mainClass = classLoader.loadClass(fullClassName);
                     if (mainClass != null) {
                         File f1 = new File(inputPath + qid);   // 试题答案文件夹，以每题题号命名
+                        File ans = new File(outputPath);   // 先创建output文件夹
+                        if (!ans.exists()) {
+                            ans.mkdir();
+                        }
                         File f2 = new File(outputPath + sid);  // 学生运行结果文件夹，以学号命名
                         if (!f2.exists()) {
                             f2.mkdir();

@@ -1,5 +1,8 @@
 import com.violetks.fileUtil.FileOutput;
 
+/**
+ * 测试读取文件内容
+ */
 public class TestFileOutput {
     public TestFileOutput() {
     }
